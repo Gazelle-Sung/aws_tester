@@ -1,0 +1,110 @@
+@font-face {
+  font-family: firstFont;
+  src:url('font/FreePixel.ttf')
+}
+@font-face {
+  font-family: secondFont;
+  src:url('font/PressStart2P.ttf')
+}
+@font-face {
+  font-family: thirdFont;
+  src:url('font/DungGeunMo.woff')
+}
+@font-face {
+  font-family: fourthFont;
+  src:url('font/Pxlvetica.ttf')
+}
+
+#loader{
+  display:none;
+  font-family: secondFont, thirdFont;
+  text-align: center;
+  font-size:15px;
+  font-weight: 500;
+  color: #FF9B9B;
+  width: 100vw;
+	height: 100vh;
+  background-image: url("map_backgroundmap.png");
+  background-size: contain;
+  max-width: 375px;
+  max-height: 667px;
+}
+#afterLoading{
+  display:block;
+}
+.startIsland{
+  position: absolute;
+  top:20px;
+  left:50%;
+  transform: translateX(-50%);
+}
+.ship{
+  position: absolute;
+  z-index: 2;
+  top:10%;
+  left:50%;
+  transform: translateX(-50%);
+  max-width: 50px;
+  max-height: 50px;
+  animation: shipmove 4.5s;
+}
+.endIsland{
+  position: absolute;
+  left:50%;
+  top:80%;
+  transform: translateX(-50%);
+}
+@keyframes shipmove{
+  0%   {transform: translate(50%,100%);}
+  15%   {transform: translate(-150%,130%);}
+  25%   {transform: translate(70%,200%);}
+  40%   {transform: translate(80%,500%);}
+  60%   {transform: translate(-200%,550%);}
+  70% {transform: translate(-20%,750%);}
+  100% {transform: translate(20%,900%);}
+}
+
+@media only screen
+  and (min-device-width: 376px) {
+    #loader{
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 25%);
+      margin-bottom: 0;
+      font-family: firstFont,   thirdFont;
+      border: 10px solid black;
+      background-color: white;
+      height:100vh;
+    }
+    .startIsland{
+      position: absolute;
+      top:20px;
+      left:50%;
+      transform: translateX(-50%);
+    }
+    .ship{
+      position: absolute;
+      z-index: 3;
+      top:10%;
+      left:50%;
+      transform: translateX(-50%);
+      max-width: 50px;
+      max-height: 50px;
+      animation: shipmove 4.5s;
+    }
+    .endIsland{
+      position: absolute;
+      left:50%;
+      top:80%;
+      transform: translateX(-50%);
+    }
+    @keyframes shipmove{
+      0%   {transform: translate(50%,100%);}
+      15%   {transform: translate(-150%,130%);}
+      25%   {transform: translate(70%,200%);}
+      40%   {transform: translate(80%,500%);}
+      60%   {transform: translate(-200%,550%);}
+      70% {transform: translate(-20%,750%);}
+      100% {transform: translate(20%,900%);}
+    }
+  }

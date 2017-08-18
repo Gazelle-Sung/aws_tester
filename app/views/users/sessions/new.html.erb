@@ -1,0 +1,48 @@
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<body id="login_body">
+  <section id="login_section">
+    <div class="login_background">
+      
+      <div class="login_logo">
+        <%= image_tag("icon/logo.png") %>
+      </div>
+      <div id="cloud1">
+        <%= image_tag("map/cloud1.png") %>
+      </div>
+      <div id="cloud2">
+        <%= image_tag("map/cloud2.png") %>
+      </div>
+      <div id="cloud3">
+        <%= image_tag("map/cloud3.png") %>
+      </div>
+      <div id="login_boat">
+        <%= image_tag("map/boat.png") %>
+      </div>
+      
+      <div class="login">
+        <div class="form-inputs">
+          <%= f.input :email, required: false, label:false, placeholder: "ID" %>
+          <%= f.input :password, required: false, label:false, placeholder: "PASSWORD" %>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit"><%= image_tag("icon/startbutton.png") %></button>
+        </div>
+        
+        <div class="form-actions">
+          <a href="/users/sign_up"><button type="submit"><%= image_tag("icon/newgamebtn.png") %></button></a>
+        </div>
+       </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+  
+<% end %>
+
+
+
+
+
+

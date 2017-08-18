@@ -1,0 +1,163 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+  }
+  .make_btn1{
+   float: center;
+   background-color: transparent;
+   border: none;
+   border-radius: 5px;
+   color: black;
+}
+.close_button{
+  float: right;
+  border:none;
+  background-color: transparent;
+}
+  .modal-content {
+    position: fixed;
+    left:50%;
+    transform: translateX(-52%);
+    bottom: 30%;
+    background-color: #fefefe;
+    width: 80%;
+    text-align: center;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+  }
+  
+  @-webkit-keyframes slideIn {
+    from {bottom: -10%; opacity: 0} 
+    to {bottom: 40%; opacity: 1}
+  }
+  
+  .modal-content2 {
+    position: fixed;
+    left:50%;
+    transform: translateX(-52%);
+    bottom: 30%;
+    background-color: #fefefe;
+    width: 80%;
+    text-align: center;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn2;
+    animation-duration: 0.4s
+  }
+  @-webkit-keyframes slideIn2 {
+    from {bottom: -10%; opacity: 0} 
+    to {bottom: 30%; opacity: 1}
+  }
+  .close{
+  float: right;
+  border:none;
+  background-color: transparent;
+  font-size: 40px;
+  margin-right: 20px;
+  margin-top: -10px;
+}
+
+.modal-footer{
+  border:none;
+  text-align: center;
+}
+  
+  .close2{
+    float: right;
+  border:none;
+  background-color: transparent;
+  font-size: 40px;
+  margin-right: 20px;
+  margin-top: -10px;
+  }
+  
+  .add_custom_quest {
+      font-family: thirdFont;
+    font-weight: 100;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    background-color: #6A84EF;
+    border-radius: 8px;
+    color:#F5F995;
+  }
+  
+  .modal-header2{
+    color:#FF5974;
+  }
+  .modal-header h2{
+    color:#FF5974;
+    font-size:11px;
+    margin-top: 13px;
+    font-family: secondFont;
+  }
+  
+  .title_menu{
+    padding:10px;
+    margin-left:10%;
+    margin-right:10%;
+    text-align:center;
+  }
+  .modal-body{
+    font-size:20px;
+  }
+  .modal-body input{
+    border:1px solid gray;
+    min-height:50px;
+  }
+  .date_button{
+	  background-color: white; 
+	  border: none !important;
+    color: gray;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    min-height:25px !important;
+    outline: none;
+  }
+  
+  .title_button{
+    background-color: white; 
+	  border: none;
+    color: gray;
+    padding: 5px;
+    text-align: center;
+    font-size: 13px;
+    outline: none;
+  }
+  
+  .change_title{
+    font-family: thirdFont;
+    font-weight: 100;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    background-color: #6A84EF;
+    border-radius: 8px;
+    color:#F5F995;
+  }
+  
+  .active_date_btn{
+    color: #FF5974;
+  }
+  
+  .active_title_btn{
+    color: #FF5974;
+  }
+  .my_title_btn{
+    color:#6A84EF;
+  }

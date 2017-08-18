@@ -1,0 +1,308 @@
+<body id="bag_item_body">
+  <header>
+    <div class="current_island_name_holder">
+      <p id="bag_item_page_name">My Items</p>
+    </div>
+  </header>
+  <section id="bag_item_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 character_info">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="character_img">
+                <% if current_user.hat != 0 %>
+                  <div class="character_hat">
+                    <%= image_tag("character/items/hat_#{current_user.hat}_small.png", id:"wearing_hat") %>
+                  </div>
+                <%else%>
+                  <div class="character_hat">
+                    <%= image_tag("", id:"wearing_hat") %>
+                  </div>
+                <%end%>
+                  
+                <% if current_user.dress != 0 %>
+                  <div class="character_clothes">
+                    <%= image_tag("character/items/clothes_#{current_user.dress}_small.png", id:"wearing_clothes") %>
+                  </div>
+                <%else%>
+                  <div class="character_clothes">
+                    <%= image_tag("", id:"wearing_clothes") %>
+                  </div>
+                <% end %>
+                
+                <% if current_user.bag != 0 %>
+                  <div class="character_bag">
+                    <%= image_tag("character/items/bag_#{current_user.bag}_small.png", id:"wearing_bag") %>
+                  </div>
+                <%else%>
+                  <div class="character_bag">
+                    <%= image_tag("", id:"wearing_bag") %>
+                  </div>
+                <% end %>
+                  
+                <%= image_tag("character/p_character.png", id:"main_character") %>
+        
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="user_name_holder">
+                <p id="title_name">
+                  <% if current_user.title_name == 0 %>
+                    초심자
+                  <% elsif current_user.title_name == 1 %>
+                    행운아
+                  <% elsif current_user.title_name == 2 %>
+                    해결사  
+                  <% elsif current_user.title_name == 3 %>
+                    불한당  
+                  <% elsif current_user.title_name == 4 %>
+                    굿보이
+                  <% elsif current_user.title_name == 5 %>
+                    어린왕자
+                  <% elsif current_user.title_name == 6 %>
+                    모두의친구
+                  <% elsif current_user.title_name == 7 %>
+                    수의사
+                  <% elsif current_user.title_name == 8 %>
+                    영웅
+                  <% elsif current_user.title_name == 9 %>
+                    빛의인도자
+                  <% elsif current_user.title_name == 10 %>
+                    애묘인
+                  <% elsif current_user.title_name == 11 %>
+                    살신성인
+                  <% elsif current_user.title_name == 12 %>
+                    마라토너
+                  <% elsif current_user.title_name == 13 %>
+                    게으름뱅이
+                  <% elsif current_user.title_name == 14 %>
+                    외톨이
+                  <% elsif current_user.title_name == 15 %>
+                    
+                  <% elsif current_user.title_name == 16 %>
+                    
+                  <% elsif current_user.title_name == 17 %>
+                    
+                  <% elsif current_user.title_name == 18 %>
+                    
+                  <% elsif current_user.title_name == 19 %>
+                    
+                  <% elsif current_user.title_name == 20 %>
+                    
+                  <% elsif current_user.title_name == 21 %>
+                    
+                  <% elsif current_user.title_name == 22 %>
+                    
+                  <% elsif current_user.title_name == 23 %>
+                    
+                  <% elsif current_user.title_name == 24 %>
+                    
+                  <% elsif current_user.title_name == 25 %>
+                    
+                  <% elsif current_user.title_name == 26 %>
+                    
+                  <% elsif current_user.title_name == 27 %>
+                    
+                  <% elsif current_user.title_name == 28 %>
+                    
+                  <% elsif current_user.title_name == 29 %>
+                    
+                  <% elsif current_user.title_name == 30 %>
+                    
+                  <% elsif current_user.title_name == 31 %>
+                    시바맨
+                  <% elsif current_user.title_name == 32 %>
+                    냥냥펀치
+                  <% elsif current_user.title_name == 33 %>
+                    도토리나무
+                  <% elsif current_user.title_name == 34 %>
+                    엄마사슴
+                  <% elsif current_user.title_name == 35 %>
+                    거북왕
+                  <% elsif current_user.title_name == 36 %>
+                    앵무여왕
+                  <% elsif current_user.title_name == 37 %>
+                    부엉부엉
+                  <% elsif current_user.title_name == 38 %>
+                    당근농장주
+                  <% elsif current_user.title_name == 39 %>
+                    플래시
+                  <% elsif current_user.title_name == 40 %>
+                    폭스퀸
+                  <% elsif current_user.title_name == 41 %>
+                    쿵푸팬더
+                  <% elsif current_user.title_name == 42 %>
+                    코카콜라
+                  <% elsif current_user.title_name == 43 %>
+                    핑구
+                  <% elsif current_user.title_name == 44 %>
+                    라이온킹
+                  <% elsif current_user.title_name == 45 %>
+                    타이거마스크
+                  <% elsif current_user.title_name == 46 %>
+                    드래곤마스터
+                  <% elsif current_user.title_name == 47 %>
+                    
+                  <% elsif current_user.title_name == 48 %>
+                    
+                  <% elsif current_user.title_name == 49 %>
+                    
+                  <% elsif current_user.title_name == 50 %>
+                    
+                  <% end %>
+                </p>
+                <p id="user_id"><%= current_user.email %></p>
+              </div>
+              <div class="animal_img">
+                
+                <% if current_user.pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                  <%= image_tag("animal/animal_0.png") %>
+                  <p id="my_pet_name">EMPTY</p><!--현재 유저의 펫의 이름-->
+                <% else %>
+                  <% animal_obj = Animal.find(current_user.pet) %>
+                  <%= image_tag("animal/animal_#{animal_obj.species}.png") %>
+                  
+                  <p id="my_pet_name"><%= animal_obj.name %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="character_status">
+                <div class="character_LV">
+                  <p id="user_level">LV : <%=current_user.level%></p> 
+                </div>
+                <p class="status_name">EXP</p>
+                <div class="exp_gage">
+                  <div id="current_exp_gage"></div>
+                </div>
+                <!-- 경험치 -->
+                <P class="exp_count"> <span id="current_exp"><%=current_user.current_exp%></span> / <span id="max_exp"><%=current_user.need_exp%></span></P>
+                <p class="status_name">COIN</p>
+                <!-- 코인 -->
+                <p class="gage"> <%=current_user.coin%> <%= image_tag("icon/coin.png") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 item_classifier">
+          <button class="active_btn classifier_btn" onclick="click_hat_btn()">Hat</button>
+          <button class="classifier_btn" onclick="click_clothes_btn()">Clothes</button>
+          <button class="classifier_btn" onclick="click_bag_btn()">Bag</button>
+          <button class="classifier_btn" onclick="click_ticket_btn()">Ticket</button>
+        </div>
+        <div class="col-xs-12 save_holder">
+          <form action="/bag_item/wearing" method="post">
+            <input id="save_hat_input" type="hidden" name="hat" value="<%=current_user.hat%>"></input>
+            <input id="save_clothes_input" type="hidden" name="clothes" value="<%=current_user.dress%>"></input>
+            <input id="save_bag_input" type="hidden" name="bag" value="<%=current_user.bag%>"></input>
+            <button class="save_btn" type="submit">Wear(Save)</button>
+          </form>
+        </div>
+        <% @hats.each do |hat| %>
+          <div class="col-xs-12 item_info hat">
+            <div class="row">
+              <div class="col-xs-4 item_imgholder">
+                <%= image_tag("character/items/hat_#{hat.type_number}_big.png") %>
+              </div>
+              <div class="col-xs-8 item_detail_info">
+                <div class="item_setting">
+                  <button class="set_btn" onclick="wear_hat(<%=hat.type_number%>)">Try</button>
+                </div>
+                <div class="item_description">
+                  <p class="item_title"><%= @menus.where('category = ? AND type_num = ?', 'hat', hat.type_number)[0].name %></p>
+                  <p class="item_detail"><%= @menus.where('category = ? AND type_num = ?', 'hat', hat.type_number)[0].description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+        <% @dresses.each do |dress| %>
+          <div class="col-xs-12 item_info clothes">
+            <div class="row">
+              <div class="col-xs-4 item_imgholder">
+                <%= image_tag("character/items/clothes_#{dress.type_number}_big.png") %>
+              </div>
+              <div class="col-xs-8 item_detail_info">
+                <div class="item_setting">
+                  <button class="set_btn" onclick="wear_onesie(<%=dress.type_number%>)">Try</button>
+                </div>
+                
+                <div class="item_description">
+                  <p class="item_title"><%= @menus.where('category = ? AND type_num = ?', 'dress', dress.type_number)[0].name %></p>
+                  <p class="item_detail"><%= @menus.where('category = ? AND type_num = ?', 'dress', dress.type_number)[0].description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+        <% @bags.each do |bag| %>
+          <div class="col-xs-12 item_info bag">
+            <div class="row">
+              <div class="col-xs-4 item_imgholder">
+                <%= image_tag("character/items/bag_#{bag.type_number}_big.png") %>
+              </div>
+              <div class="col-xs-8 item_detail_info">
+                <div class="item_setting">
+                  <button class="set_btn" onclick="wear_bag(<%=bag.type_number%>)">Try</button>
+                </div>
+                <div class="item_description">
+                  <p class="item_title"><%= @menus.where('category = ? AND type_num = ?', 'bag', bag.type_number)[0].name %></p>
+                  <p class="item_detail"><%= @menus.where('category = ? AND type_num = ?', 'bag', bag.type_number)[0].description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+        <% @tickets.each do |ticket| %>
+          <div class="col-xs-12 item_info ticket">
+            <div class="row">
+              <div class="col-xs-4 item_imgholder">
+                <%= image_tag("character/items/ticket_#{ticket.type_number}.png") %>
+              </div>
+              <div class="col-xs-8 item_detail_info">
+                <div class="item_description">
+                  <p class="item_title">Sibadog Island Ticket</p>
+                  <p class="item_detail">You can visit Sibadog island with this ticket</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </section>
+  <footer>
+      <div class="row">
+        <div class="col-xs-12 icons">
+          <div class="row">
+            <div class="col-xs-2 Home">
+                <a href="main"><%= image_tag("icon/ic1_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Map">
+              <a href="map"><%= image_tag("icon/ic2_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Bag">
+              <a href="bag_item"><%= image_tag("icon/ic3_02.png") %></a>
+            </div>
+            <div class="col-xs-2 Pet">
+              <a href="pet"><%= image_tag("icon/ic4_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Shop">
+              <a href="shop"><%= image_tag("icon/ic5_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Setting">
+              <div class="dropdown">
+             <%= image_tag("icon/ic6_01.png", :class=>"dropbtn", :onclick => "dropup_function()") %>            
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/users/sign_out"><%= image_tag("icon/ic8_01.png") %></a>
+              <a href="/etc/rank"><%= image_tag("icon/ic9_01.png") %></a>
+              <a href="/setting"><%= image_tag("icon/ic7_01.png") %></a>
+              <a href="/"><%= image_tag("icon/ic10_01.png") %></a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>

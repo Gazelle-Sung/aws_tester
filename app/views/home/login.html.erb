@@ -1,0 +1,37 @@
+  <section id="login_section">
+    <div class="login_background">
+      <div class="login_logo">
+        <%= image_tag("icon/logo.png") %>
+      </div>
+      <div id="cloud1">
+        <%= image_tag("map/cloud1.png") %>
+      </div>
+      <div id="cloud2">
+        <%= image_tag("map/cloud2.png") %>
+      </div>
+      <div id="cloud3">
+        <%= image_tag("map/cloud3.png") %>
+      </div>
+      <div id="login_boat">
+        <%= image_tag("map/boat.png") %>
+      </div>
+      
+      
+      <div class="login">
+        
+        
+        <input type="text", name="ID", placeholder="ID">
+        <br>
+        <input type="password", name="PW", placeholder="PASSWORD">
+        <br>
+       
+       <% if user_signed_in? %>
+        <p><%= current_user.email %>님 환영합니다.</p>
+        <a href="/users/sign_out">로그아웃</a>
+        <% else %>
+        <p>아직 로그인을 하지 않으셨네요. 로그인을 해주세요~<p>
+        <a href="/users/sign_in"><%= image_tag("icon/startbutton.png") %></a>
+      <% end %>
+        
+    </div>
+  </section>

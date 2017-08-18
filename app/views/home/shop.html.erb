@@ -1,0 +1,154 @@
+<body>
+  <header>
+    <div class="logo">
+      <%= image_tag("logo.png") %>
+    </div>
+  </header>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 character_info">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="character_img">
+                <%= image_tag("character.png") %>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="character_LV">
+                <p>LV : 03</p>
+                <p>~~~~섬</p>
+              </div>
+              <div class="animal_img">
+                <%= image_tag("animal_img2.gif") %>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="character_status">
+                <p id="name"><span>칭호</span>  <span>아이디</span></p>
+                <p>EXP :</p>
+                <P class="gage"> 000 / 100</P>
+                <p>COIN : </p>
+                <p class="gage"> 0000 coin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 item_classifier">
+          <button>ALL</button>
+          <button>모자</button>
+          <button>옷</button>
+          <button>가방</button>
+          <button>펫</button>
+        </div>
+        <div class="col-xs-12 item_info">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="item_imgholder">
+                <%= image_tag("dog-hat.jpg") %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="item_description">
+                <p class="item_title">강아지 모자</p>
+                <p class="item_detail">강아지를 얼굴을 본떠서 만든 모자이다. 강아지에게 좀더 친밀감을 느끼게 할 수 있다.</p>
+              </div>
+            </div>
+            <div class="col-xs-2 item_setting">
+              <button>구입</button>
+              <button>입어보기</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 item_info">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="item_imgholder">
+                <%= image_tag("pet-scroll.png") %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="item_description">
+                <p class="item_title">강아지 구매 증명서</p>
+                <p class="item_detail">사냥꾼에게 잡혀있는 강아지를 구매할수 있는 증명서이다. <br> 강아지에게 자유를 주자!  혹시 구해준 강아지가 당신을 따라갈지도(?)</p>
+              </div>
+            </div>
+            <div class="col-xs-2 item_setting">
+              <button>구입</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 item_info">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="item_imgholder">
+                <%= image_tag("dog-hat.jpg") %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="item_description">
+                <p class="item_title">강아지 모자</p>
+                <p class="item_detail">강아지를 얼굴을 본떠서 만든 모자이다. 강아지에게 좀더 친밀감을 느끼게 할 수 있다.</p>
+              </div>
+            </div>
+            <div class="col-xs-2 item_setting">
+              <button>구입</button>
+              <button>입어보기</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 item_info">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="item_imgholder">
+                <%= image_tag("pet-scroll.png") %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="item_description">
+                <p class="item_title">고양이 구매 증명서</p>
+                <p class="item_detail">사냥꾼에게 잡혀있는 고양이를 구매할수 있는 증명서이다. <br> 고양이에게 자유를 주자!  혹시 구해준 고양이가 당신을 따라갈지도(?)</p>
+              </div>
+            </div>
+            <div class="col-xs-2 item_setting">
+              <button>구입</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+      <div class="row">
+        <div class="col-xs-12 icons">
+          <div class="row">
+            <div class="col-xs-2 Home">
+                <a href="main"><%= image_tag("icon/ic1_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Map">
+              <a href="map"><%= image_tag("icon/ic2_02.png") %></a>
+            </div>
+            <div class="col-xs-2 Bag">
+              <a href="bag_item"><%= image_tag("icon/ic3_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Pet">
+              <a href="pet"><%= image_tag("icon/ic4_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Shop">
+              <a href="shop"><%= image_tag("icon/ic5_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Setting">
+              <div class="dropdown">
+             <%= image_tag("icon/ic6_01.png", :class=>"dropbtn", :onclick => "dropup_function()") %>            
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/users/sign_out"><%= image_tag("icon/ic8_01.png") %></a>
+              <a href="/etc/rank"><%= image_tag("icon/ic9_01.png") %></a>
+              <a href="/setting"><%= image_tag("icon/ic7_01.png") %></a>
+              <a href="/"><%= image_tag("icon/ic10_01.png") %></a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>

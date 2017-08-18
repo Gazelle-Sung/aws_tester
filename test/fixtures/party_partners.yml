@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  party_quest_id: 1
+  did: false
+  user_id: 
+  party_quest_id: 
+
+two:
+  user_id: 1
+  party_quest_id: 1
+  did: false
+  user_id: 
+  party_quest_id: 

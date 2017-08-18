@@ -1,0 +1,661 @@
+<body id="ranking_body">
+  <header>
+    <div class="ranking_name_holder">
+      <p id="ranking_holder_name">Ranking</p>
+    </div>
+  </header>
+  <section id="ranking_section">
+        <div class="row">
+            <div class="col-xs-12 rank_classifier">
+                <button class="classifier_btn rank_active_btn" onclick="click_level_rank_btn()">LEVEL</button>
+                <button class="classifier_btn" onclick="click_pet_rank_btn()">PET</button>
+                <button class="classifier_btn" onclick="click_quest_rank_btn()">QUEST</button>
+                <button class="classifier_btn" onclick="click_coin_rank_btn()">COIN</button>
+            </div>
+            <div class="col-xs-12 top_rank">
+                <div class="row">
+                    <p id="top3_title">TOP 3</p>
+                    <!--level top3 rank-->
+                    <%if @level_ranks_medal.length >= 2%>
+                    <div class="col-xs-4 number2 rank_for_level">
+                        <div class="number2_character">
+                            <p class="rank_user_name"><%=@level_ranks_medal[1].email%></p>
+                            <div id="silver">
+                                <%= image_tag("icon/medalsilver.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=@level_ranks_medal[1].level%></p>
+                            <% if @level_ranks_medal[1].hat != 0 %>
+                                <div class="number2_hat">
+                                <%= image_tag("character/items/hat_#{@level_ranks_medal[1].hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if @level_ranks_medal[1].dress != 0 %>
+                                <div class="number2_clothes">
+                                    <%= image_tag("character/items/clothes_#{@level_ranks_medal[1].dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number2_pet">
+                                <% if @level_ranks_medal[1].pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(@level_ranks_medal[1].pet) %>
+                                    
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number2_platform">
+                                <span>2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    <%if @level_ranks_medal.length >= 1%>
+                    <div class="col-xs-4 number1 rank_for_level">
+                        <div class="number1_character">
+                            <p class="rank_user_name"><%=@level_ranks_medal[0].email%></p>
+                            <div id="gold">
+                                <%= image_tag("icon/medalgold.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=@level_ranks_medal[0].level%></p>
+                            <% if @level_ranks_medal[0].hat != 0 %>
+                                <div class="number1_hat">
+                                <%= image_tag("character/items/hat_#{@level_ranks_medal[0].hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if @level_ranks_medal[0].dress != 0 %>
+                                <div class="number1_clothes">
+                                    <%= image_tag("character/items/clothes_#{@level_ranks_medal[0].dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number1_pet">
+                                <% if @level_ranks_medal[0].pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(@level_ranks_medal[0].pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number1_platform">
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <%end%>
+                    
+                    <%if @level_ranks_medal.length >= 3%>
+                    <div class="col-xs-4 number3 rank_for_level">
+                        <div class="number3_character">
+                            <p class="rank_user_name"><%=@level_ranks_medal[2].email%></p>
+                            <div id="bronze">
+                                <%= image_tag("icon/medalbronze.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=@level_ranks_medal[2].level%></p>
+                            <% if @level_ranks_medal[2].hat != 0 %>
+                                <div class="number3_hat">
+                                <%= image_tag("character/items/hat_#{@level_ranks_medal[2].hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if @level_ranks_medal[2].dress != 0 %>
+                                <div class="number3_clothes">
+                                    <%= image_tag("character/items/clothes_#{@level_ranks_medal[2].dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number3_pet">
+                                <% if @level_ranks_medal[2].pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(@level_ranks_medal[2].pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number3_platform">
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    <!--pet top3 rank-->
+                    <%if @pet_ranks_medal.length >= 2%>
+                    <div class="col-xs-4 number2 rank_for_pet">
+                        <div class="number2_character">
+                            <p class="rank_user_name"><%=User.find(@pet_ranks_medal[1].user_id).email%></p>
+                            <div id="silver">
+                                <%= image_tag("icon/medalsilver.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=User.find(@pet_ranks_medal[1].user_id).level%></p>
+                            <% if User.find(@pet_ranks_medal[1].user_id).hat != 0 %>
+                                <div class="number2_hat">
+                                <%= image_tag("character/items/hat_#{User.find(@pet_ranks_medal[1].user_id).hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if User.find(@pet_ranks_medal[1].user_id).dress != 0 %>
+                                <div class="number2_clothes">
+                                    <%= image_tag("character/items/clothes_#{User.find(@pet_ranks_medal[1].user_id).dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number2_pet">
+                                <% if User.find(@pet_ranks_medal[1].user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(User.find(@pet_ranks_medal[1].user_id).pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number2_platform">
+                                <span>2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    <%if @pet_ranks_medal.length >= 1%>
+                    <div class="col-xs-4 number1 rank_for_pet">
+                        <div class="number1_character">
+                            <p class="rank_user_name"><%=User.find(@pet_ranks_medal[0].user_id).email%></p>
+                            <div id="gold">
+                                <%= image_tag("icon/medalgold.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=User.find(@pet_ranks_medal[0].user_id).level%></p>
+                            <% if User.find(@pet_ranks_medal[0].user_id).hat != 0 %>
+                                <div class="number1_hat">
+                                <%= image_tag("character/items/hat_#{User.find(@pet_ranks_medal[0].user_id).hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if User.find(@pet_ranks_medal[0].user_id).dress != 0 %>
+                                <div class="number1_clothes">
+                                    <%= image_tag("character/items/clothes_#{User.find(@pet_ranks_medal[0].user_id).dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number1_pet">
+                                <% if User.find(@pet_ranks_medal[0].user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(User.find(@pet_ranks_medal[0].user_id).pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number1_platform">
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <%end%>
+                    
+                    <%if @pet_ranks_medal.length >= 3%>
+                    <div class="col-xs-4 number3 rank_for_pet">
+                        <div class="number3_character">
+                            <p class="rank_user_name"><%=User.find(@pet_ranks_medal[2].user_id).email%></p>
+                            <div id="bronze">
+                                <%= image_tag("icon/medalbronze.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=User.find(@pet_ranks_medal[2].user_id).level%></p>
+                            <% if User.find(@pet_ranks_medal[2].user_id).hat != 0 %>
+                                <div class="number3_hat">
+                                <%= image_tag("character/items/hat_#{User.find(@pet_ranks_medal[2].user_id).hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if User.find(@pet_ranks_medal[2].user_id).dress != 0 %>
+                                <div class="number3_clothes">
+                                    <%= image_tag("character/items/clothes_#{User.find(@pet_ranks_medal[2].user_id).dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number3_pet">
+                                <% if User.find(@pet_ranks_medal[2].user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(User.find(@pet_ranks_medal[2].user_id).pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number3_platform">
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    
+                    <!--quest top3 rank-->
+                    <%if @custom_ranks_medal.length >= 2%>
+                    <div class="col-xs-4 number2 rank_for_quest">
+                        <div class="number2_character">
+                            <p class="rank_user_name"><%=User.find(@custom_ranks_medal[1].user_id).email%></p>
+                            <div id="silver">
+                                <%= image_tag("icon/medalsilver.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=User.find(@custom_ranks_medal[1].user_id).level%></p>
+                            <% if User.find(@custom_ranks_medal[1].user_id).hat != 0 %>
+                                <div class="number2_hat">
+                                <%= image_tag("character/items/hat_#{User.find(@custom_ranks_medal[1].user_id).hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if User.find(@custom_ranks_medal[1].user_id).dress != 0 %>
+                                <div class="number2_clothes">
+                                    <%= image_tag("character/items/clothes_#{User.find(@custom_ranks_medal[1].user_id).dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number2_pet">
+                                <% if User.find(@custom_ranks_medal[1].user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(User.find(@custom_ranks_medal[1].user_id).pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number2_platform">
+                                <span>2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    <%if @custom_ranks_medal.length >= 1%>
+                    <div class="col-xs-4 number1 rank_for_quest">
+                        <div class="number1_character">
+                            <p class="rank_user_name"><%=User.find(@custom_ranks_medal[0].user_id).email%></p>
+                            <div id="gold">
+                                <%= image_tag("icon/medalgold.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=User.find(@custom_ranks_medal[0].user_id).level%></p>
+                            <% if User.find(@custom_ranks_medal[0].user_id).hat != 0 %>
+                                <div class="number1_hat">
+                                <%= image_tag("character/items/hat_#{User.find(@custom_ranks_medal[0].user_id).hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if User.find(@custom_ranks_medal[0].user_id).dress != 0 %>
+                                <div class="number1_clothes">
+                                    <%= image_tag("character/items/clothes_#{User.find(@custom_ranks_medal[0].user_id).dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number1_pet">
+                                <% if User.find(@custom_ranks_medal[0].user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(User.find(@custom_ranks_medal[0].user_id).pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number1_platform">
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <%end%>
+                    
+                    <%if @custom_ranks_medal.length >= 3%>
+                    <div class="col-xs-4 number3 rank_for_quest">
+                        <div class="number3_character">
+                            <p class="rank_user_name"><%=User.find(@custom_ranks_medal[2].user_id).email%></p>
+                            <div id="bronze">
+                                <%= image_tag("icon/medalbronze.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=User.find(@custom_ranks_medal[2].user_id).level%></p>
+                            <% if User.find(@custom_ranks_medal[2].user_id).hat != 0 %>
+                                <div class="number3_hat">
+                                <%= image_tag("character/items/hat_#{User.find(@custom_ranks_medal[2].user_id).hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if User.find(@custom_ranks_medal[2].user_id).dress != 0 %>
+                                <div class="number3_clothes">
+                                    <%= image_tag("character/items/clothes_#{User.find(@custom_ranks_medal[2].user_id).dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number3_pet">
+                                <% if User.find(@custom_ranks_medal[2].user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(User.find(@custom_ranks_medal[2].user_id).pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number3_platform">
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    
+                    <!--coin top3 rank-->
+                    <%if @coin_ranks_medal.length >= 2%>
+                    <div class="col-xs-4 number2 rank_for_coin">
+                        <div class="number2_character">
+                            <p class="rank_user_name"><%=@coin_ranks_medal[1].email%></p>
+                            <div id="silver">
+                                <%= image_tag("icon/medalsilver.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=@coin_ranks_medal[1].level%></p>
+                            <% if @coin_ranks_medal[1].hat != 0 %>
+                                <div class="number2_hat">
+                                <%= image_tag("character/items/hat_#{@coin_ranks_medal[1].hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if @coin_ranks_medal[1].dress != 0 %>
+                                <div class="number2_clothes">
+                                    <%= image_tag("character/items/clothes_#{@coin_ranks_medal[1].dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number2_pet">
+                                <% if @coin_ranks_medal[1].pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(@coin_ranks_medal[1].pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number2_platform">
+                                <span>2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                    <%if @coin_ranks_medal.length >= 1%>
+                    <div class="col-xs-4 number1 rank_for_coin">
+                        <div class="number1_character">
+                            <p class="rank_user_name"><%=@coin_ranks_medal[0].email%></p>
+                            <div id="gold">
+                                <%= image_tag("icon/medalgold.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=@coin_ranks_medal[0].level%></p>
+                            <% if @coin_ranks_medal[0].hat != 0 %>
+                                <div class="number1_hat">
+                                <%= image_tag("character/items/hat_#{@coin_ranks_medal[0].hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if @coin_ranks_medal[0].dress != 0 %>
+                                <div class="number1_clothes">
+                                    <%= image_tag("character/items/clothes_#{@coin_ranks_medal[0].dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number1_pet">
+                                <% if @coin_ranks_medal[0].pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(@coin_ranks_medal[0].pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number1_platform">
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <%end%>
+                    
+                    <%if @coin_ranks_medal.length >= 3%>
+                    <div class="col-xs-4 number3 rank_for_coin">
+                        <div class="number3_character">
+                            <p class="rank_user_name"><%=@coin_ranks_medal[2].email%></p>
+                            <div id="bronze">
+                                <%= image_tag("icon/medalbronze.png") %>       
+                            </div>
+                            <p class="rank_LV">LV : <%=@coin_ranks_medal[2].level%></p>
+                            <% if @coin_ranks_medal[2].hat != 0 %>
+                                <div class="number3_hat">
+                                <%= image_tag("character/items/hat_#{@coin_ranks_medal[2].hat}_small.png") %>   
+                                </div>
+                            <%end%>
+                            <% if @coin_ranks_medal[2].dress != 0 %>
+                                <div class="number3_clothes">
+                                    <%= image_tag("character/items/clothes_#{@coin_ranks_medal[2].dress}_small.png") %>    
+                                </div>
+                            <%end%>
+                            <div class="number3_pet">
+                                <% if @coin_ranks_medal[2].pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                  <%= image_tag("animal/animal_0.png") %>
+                                <% else %>
+                                    <% animal_number = Animal.find(@coin_ranks_medal[2].pet) %>
+                                    <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                <% end %>
+                            </div>
+                                <%= image_tag("character/p_character.png") %>
+                            <div class="number3_platform">
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                    
+                </div>
+            </div>
+            
+            
+            
+            
+            <div class="col-xs-12 top23 rank_for_level">
+                <div class="row">
+                    <%@level_ranking = 4%>
+                    <%@for_background = 0%>
+                    <% @level_ranks_other.each do |user| %>
+                    <%if (@level_ranking%2) == 0%>
+                        <%@for_background += 1%>
+                    <%end%>
+                    <%if (@for_background%2) == 0%>
+                        <div class="col-xs-6 other_people2">
+                    <%else%>
+                        <div class="col-xs-6 other_people">
+                    <%end%>
+                        <div class="row">
+                            <div class="col-xs-6 top23_character">
+                                <% if user.hat != 0 %>
+                                    <div class="top23_character_hat">
+                                    <%= image_tag("character/items/hat_#{user.hat}_small.png") %>   
+                                    </div>
+                                <%end%>
+                                <% if user.dress != 0 %>
+                                    <div class="top23_character_clothes">
+                                        <%= image_tag("character/items/clothes_#{user.dress}_small.png") %>    
+                                    </div>
+                                <%end%>
+                                <div class="top23_character_pet">
+                                    <% if user.pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                      <%= image_tag("animal/animal_0.png") %>
+                                    <% else %>
+                                        <% animal_number = Animal.find(user.pet) %>
+                                        <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                    <% end %>
+                                </div>
+                                <%= image_tag("character/p_character.png") %>
+                            </div>
+                            <div class="col-xs-6 top23_info">
+                               <p class="other_user_rank"><%=@level_ranking%>위</p>
+                               <p class="other_rank_LV">LV : <%=user.level%></p>
+                               <p class="rank_user_name"><%=user.email%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <%@level_ranking += 1%>
+                    <% end %>
+                    </div>
+                </div>
+                
+            <div class="col-xs-12 top23 rank_for_pet">
+                <div class="row">
+                    <%@pet_ranking = 4%>
+                    <%@for_background2 = 0%>
+                    <%@pet_ranks_other.each do |pet| %>
+                    <%if (@pet_ranking%2) == 0%>
+                        <%@for_background2 += 1%>
+                    <%end%>
+                    <%if (@for_background2%2) == 0%>
+                        <div class="col-xs-6 other_people2">
+                    <%else%>
+                        <div class="col-xs-6 other_people">
+                    <%end%>
+                        <div class="row">
+                            <div class="col-xs-6 top23_character">
+                                <% if User.find(pet.user_id).hat != 0 %>
+                                    <div class="top23_character_hat">
+                                    <%= image_tag("character/items/hat_#{User.find(pet.user_id).hat}_small.png") %>   
+                                    </div>
+                                <%end%>
+                                <% if User.find(pet.user_id).dress != 0 %>
+                                    <div class="top23_character_clothes">
+                                        <%= image_tag("character/items/clothes_#{User.find(pet.user_id).dress}_small.png") %>    
+                                    </div>
+                                <%end%>
+                                <div class="top23_character_pet">
+                                    <% if User.find(pet.user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                      <%= image_tag("animal/animal_0.png") %>
+                                    <% else %>
+                                        <% animal_number = Animal.find(User.find(pet.user_id).pet) %>
+                                        <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                    <% end %>
+                                </div>
+                                <%= image_tag("character/p_character.png") %>
+                            </div>
+                            <div class="col-xs-6 top23_info">
+                               <p class="other_user_rank"><%=@pet_ranking%>위</p>
+                               <p class="other_rank_LV">LV : <%=User.find(pet.user_id).level%></p>
+                               <p class="rank_user_name"><%=User.find(pet.user_id).email%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <%@pet_ranking += 1%>
+                    <% end %>
+                    </div>
+                </div>
+    
+            <div class="col-xs-12 top23 rank_for_quest">
+                <div class="row">
+                    <%@quest_ranking = 4%>
+                    <%@for_background3 = 0%>
+                    <% @custom_ranks_other.each do |custom| %>
+                    <%if (@quest_ranking%2) == 0%>
+                        <%@for_background3 += 1%>
+                    <%end%>
+                    <%if (@for_background3%2) == 0%>
+                        <div class="col-xs-6 other_people2">
+                    <%else%>
+                        <div class="col-xs-6 other_people">
+                    <%end%>
+                        <div class="row">
+                            <div class="col-xs-6 top23_character">
+                                <% if User.find(custom.user_id).hat != 0 %>
+                                    <div class="top23_character_hat">
+                                    <%= image_tag("character/items/hat_#{User.find(custom.user_id).hat}_small.png") %>   
+                                    </div>
+                                <%end%>
+                                <% if User.find(custom.user_id).dress != 0 %>
+                                    <div class="top23_character_clothes">
+                                        <%= image_tag("character/items/clothes_#{User.find(custom.user_id).dress}_small.png") %>    
+                                    </div>
+                                <%end%>
+                                <div class="top23_character_pet">
+                                    <% if User.find(custom.user_id).pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                      <%= image_tag("animal/animal_0.png") %>
+                                    <% else %>
+                                        <% animal_number = Animal.find(User.find(custom.user_id).pet) %>
+                                        <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                    <% end %>
+                                </div>
+                                <%= image_tag("character/p_character.png") %>
+                            </div>
+                            <div class="col-xs-6 top23_info">
+                               <p class="other_user_rank"><%=@quest_ranking%>위</p>
+                               <p class="other_rank_LV">LV : <%=User.find(custom.user_id).level%></p>
+                               <p class="rank_user_name"><%=User.find(custom.user_id).email%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <%@quest_ranking += 1%>
+                    <% end %>
+                    </div>
+                </div>
+                
+            <div class="col-xs-12 top23 rank_for_coin">
+                <div class="row">
+                    <%@coin_ranking = 4%>
+                    <%@for_background4 = 0%>
+                    <% @coin_ranks_other.each do |coin| %>
+                    <%if (@coin_ranking%2) == 0%>
+                        <%@for_background4 += 1%>
+                    <%end%>
+                    <%if (@for_background4%2) == 0%>
+                        <div class="col-xs-6 other_people2">
+                    <%else%>
+                        <div class="col-xs-6 other_people">
+                    <%end%>
+                        <div class="row">
+                            <div class="col-xs-6 top23_character">
+                                <% if coin.hat != 0 %>
+                                    <div class="top23_character_hat">
+                                    <%= image_tag("character/items/hat_#{coin.hat}_small.png") %>   
+                                    </div>
+                                <%end%>
+                                <% if coin.dress != 0 %>
+                                    <div class="top23_character_clothes">
+                                        <%= image_tag("character/items/clothes_#{coin.dress}_small.png") %>    
+                                    </div>
+                                <%end%>
+                                <div class="top23_character_pet">
+                                    <% if coin.pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                                      <%= image_tag("animal/animal_0.png") %>
+                                    <% else %>
+                                        <% animal_number = Animal.find(coin.pet) %>
+                                        <%= image_tag("animal/animal_#{animal_number.species}.png") %>
+                                    <% end %>
+                                </div>
+                                <%= image_tag("character/p_character.png") %>
+                            </div>
+                            <div class="col-xs-6 top23_info">
+                               <p class="other_user_rank"><%=@coin_ranking%>위</p>
+                               <p class="other_rank_LV">LV : <%=coin.level%></p>
+                               <p class="rank_user_name"><%=coin.email%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <%@coin_ranking += 1%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+  </section>
+  <footer>
+      <div class="row">
+        <div class="col-xs-12 icons">
+          <div class="row">
+            <div class="col-xs-2 Home">
+                <a href="main"><%= image_tag("icon/ic1_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Map">
+              <a href="map"><%= image_tag("icon/ic2_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Bag">
+              <a href="bag_item"><%= image_tag("icon/ic3_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Pet">
+              <a href="pet"><%= image_tag("icon/ic4_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Shop">
+              <a href="shop"><%= image_tag("icon/ic5_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Setting">
+              <div class="dropdown">
+             <%= image_tag("icon/ic6_01.png", :class=>"dropbtn", :onclick => "dropup_function()") %>            
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/users/sign_out"><%= image_tag("icon/ic8_01.png") %></a>
+              <a href="/etc/rank"><%= image_tag("icon/ic9_02.png") %></a>
+              <a href="/setting"><%= image_tag("icon/ic7_01.png") %></a>
+              <a href="/"><%= image_tag("icon/ic10_01.png") %></a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>

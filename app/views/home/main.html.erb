@@ -1,0 +1,486 @@
+
+ 
+ <body id="main_body">
+  <header>
+    <div class="current_island_name_holder">
+      
+      <% if current_user.island == 0 %>
+        <p id="current_island_name">Tutorial Island</p>
+      <% elsif current_user.island == 1 %>
+        <p id="current_island_name">Sibadog Island</p>
+      <% elsif current_user.island == 2 %>
+        <p id="current_island_name">Cat Island</p>
+      <% elsif current_user.island == 3 %>
+        <p id="current_island_name">Squirrel Island</p>
+      <% elsif current_user.island == 4 %>
+        <p id="current_island_name">Baby Deer Island</p>
+      <% elsif current_user.island == 5 %>
+        <p id="current_island_name">Turtle Island</p>
+      <% elsif current_user.island == 6 %>
+        <p id="current_island_name">Parrot Island</p>
+      <% elsif current_user.island == 7 %>
+        <p id="current_island_name">Owl Island</p>
+      <% elsif current_user.island == 8 %>
+        <p id="current_island_name">Rabbit Island</p>
+      <% elsif current_user.island == 9 %>
+        <p id="current_island_name">Sloth Island</p>
+      <% elsif current_user.island == 10 %>
+        <p id="current_island_name">Red Fox Island</p>
+      <% elsif current_user.island == 11 %>
+        <p id="current_island_name">Bear Island</p>
+      <% elsif current_user.island == 12 %>
+        <p id="current_island_name">Polar Bear Island</p>
+      <% elsif current_user.island == 13 %>
+        <p id="current_island_name">Penguin Island</p>
+      <% elsif current_user.island == 14 %>
+        <p id="current_island_name">Lion Island</p>
+      <% elsif current_user.island == 15 %>
+        <p id="current_island_name">Tiger Island</p>
+      <% elsif current_user.island == 16 %>
+        <p id="current_island_name">Dragon Island</p>
+      <% elsif current_user.island == 20 %>
+        <p id="current_island_name">Party Quest Island</p>
+  
+      <% end %>
+      <p>Way to go!</p>
+    </div>
+  </header>
+  
+  <section id="main_section">
+    <div class="container-fluid">
+      <div class="row">
+        <% island_number = current_user.island %>
+        <div class="col-xs-12 current_island">
+          <%= image_tag("island/island_background/island_#{island_number}.png") %>
+        </div>
+        
+        <div class="col-xs-12 character_info">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="character_img">
+                <% if current_user.hat != 0 %>
+                  <div class="character_hat">
+                    <%= image_tag("character/items/hat_#{current_user.hat}_small.png", id:"wearing_hat") %>
+                  </div>
+                <%else%>
+                  <div class="character_hat">
+                    <%= image_tag("", id:"wearing_hat") %>
+                  </div>
+                <%end%>
+                  
+                <% if current_user.dress != 0 %>
+                  <div class="character_clothes">
+                    <%= image_tag("character/items/clothes_#{current_user.dress}_small.png", id:"wearing_clothes") %>
+                  </div>
+                <%else%>
+                  <div class="character_clothes">
+                    <%= image_tag("", id:"wearing_clothes") %>
+                  </div>
+                <% end %>
+                
+                <% if current_user.bag != 0 %>
+                  <div class="character_bag">
+                    <%= image_tag("character/items/bag_#{current_user.bag}_small.png", id:"wearing_bag") %>
+                  </div>
+                <%else%>
+                  <div class="character_bag">
+                    <%= image_tag("", id:"wearing_bag") %>
+                  </div>
+                <% end %>
+                  
+                <%= image_tag("character/p_character.png", id:"main_character") %>
+        
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="user_name_holder">
+                <!--이 부분은 칭호 레이블에서 가져올 것-->
+                <button id="titlebtn" class="make_btn1"><p id="title_name">
+                  <% if current_user.title_name == 0 %>
+                    칭호 없음
+                  <% else %>
+                    <% @menus.each do |menu| %>
+                      <% if menu.category == "title" %>
+                         <% if menu.type_num == current_user.title_name%>
+                          <%= menu.name %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                 
+                  </p>
+                </button>
+        
+                
+                
+                <p id="user_id"><%= current_user.email %></p>
+              </div>
+              <div class="animal_img">
+                
+                <% if current_user.pet == 0 %>  <!-- 현재 유저의 펫이 0이라면 -->
+                  <%= image_tag("animal/animal_0.png") %>
+                  <p id="my_pet_name">EMPTY</p><!--현재 유저의 펫의 이름-->
+                <% else %>
+                  <% animal_obj = Animal.find(current_user.pet) %>
+                  <%= image_tag("animal/animal_#{animal_obj.species}.png") %>
+                  
+                  <p id="my_pet_name"><%= animal_obj.name %></p>
+                <% end %>
+                
+                
+              </div>
+                 
+               <div id="titleModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content2">
+                        <div class="modal-header2">
+                          <span class="close">&times;</span>
+                          <h2>칭호 메뉴</h2>
+                        </div>
+                       
+					             <form action="/main/change_title" method="post">
+                        <div class="modal-body2">
+                          <div class="title_menu">
+                            <% cnt_devide = 0 %>
+                            <% title_button_count = 0%>
+                             <% @menus.each do |menu| %>
+                              <% if menu.category == "title" %>
+                               <% @titles.each do |title| %>
+                                <% if menu.type_num == title.type_number %>
+                                 <% if title.user_id == current_user.id %>
+                                   <% if cnt_devide%4 == 0 %>
+                                    <% cnt_devide += 1%>
+                                    <br>
+                                   <% else %>
+                                   <%if current_user.title_name == menu.type_num%>
+                                     <input type = "button" class = "title_button my_title_btn" onclick="title_change('<%=menu.type_num%>, <%=title_button_count%>)"  value = "<%=menu.name%>">
+                                   <%else%>
+                                     <input type = "button" class = "title_button" onclick="title_change(<%=menu.type_num%>,<%=title_button_count%>)"  value = "<%=menu.name%>">
+                                   <%end%>
+                                    <%cnt_devide += 1%>
+                                    <% title_button_count += 1%>
+                                  <%end%>
+                                   <% end %>
+                                <% end %>
+                               <% end %>
+                              <% end %>
+                             <% end %>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input id = "input_title" type="hidden" name="title" value = "<%=current_user.title_name%>"></input>
+							              <button type ="submit" class ="change_title" onclick ="return change_title();">칭호 변경</button>
+                        </div>
+                        </form>
+						
+                      </div>
+                    </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="character_status">
+                <div class="character_LV">
+                  <p id="user_level">LV : <%=current_user.level%></p> 
+                </div>
+                <p class="status_name">EXP</p>
+                <div class="exp_gage">
+                  <div id="current_exp_gage"></div>
+                </div>
+                <!-- 경험치 -->
+                <P class="exp_count"> <span id="current_exp"><%=current_user.current_exp%></span> / <span id="max_exp"><%=current_user.need_exp%></span></P>
+                <p class="status_name">COIN</p>
+                <!-- 코인 -->
+                <p class="gage"> <%=current_user.coin%> <%= image_tag("icon/coin.png") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 quest_info">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="for_border">
+                <div class="custom_quest">
+                  <p class="quest_title">
+                    <span>Custom Quest</span>
+                    <button id="custombtn" class="make_btn" data-toggle="modal" >+</button>
+                      <div id="customModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <span class="close">&times;</span>
+                          <h2>Add your Custom Quest</h2>
+                        </div>
+                        <form action="/main/new_quest" method="post">
+                        <div class="modal-body">
+                          <p>할 일</p>
+                          <p><input type="text", name="Quest", placeholder="퀘스트를 입력하세요." style="width:80%;" value=" 퀘스트"></p>
+                          <p>기간 + <span id="plus_date">1</span>일</p>
+                          <p>
+                          		<input type="button" class ="date_button active_date_btn" onclick ="change_date(1)" value="하루">
+                          		<input type="button" class ="date_button" onclick ="change_date(2)" value="이레">
+                          		<input type="button" class ="date_button" onclick ="change_date(3)" value="사흘">
+                          		<br>
+                          		<input type="button" class ="date_button" onclick ="change_date(4)" value="나흘">
+                          		<input type="button" class ="date_button" onclick ="change_date(5)" value="닷새">
+                          		<input type="button" class ="date_button" onclick ="change_date(6)" value="엿새">
+                          		<input type="button" class ="date_button" onclick ="change_date(7)" value="이레">
+                          </p>
+                        </div>
+                        <div class="modal-footer">
+                            <input id="input_date" type="hidden" name="date" value="1"></input>
+                            <button type="submit" class="add_custom_quest" onclick="return add_custom_quest();">퀘스트 등록</button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </p>
+                    <% @i = 0%>
+                    <% @custom_quests.each do |custom| %>
+                    <div>
+                      <% if custom.did == true %>
+                        <span class="quest_list custom_quest_list"><strike style="text-decoration-color:#FF9B9B; color:gray"><%=custom.content%></strike></span>
+                        <span class="quest_complete custom_complete" style="display:inline-block;">√</span>
+                      <% else%>
+                        <span class="quest_list custom_quest_list"><%=custom.content%></span>
+                        <form action="/main/custom" method="post" style="display:inline-block; float:right">
+                          <input id="custom_quest_id" type="hidden" name="custom_id" value="<%=custom.id%>"></input>
+                          <button type="submit" class="complete_btn custom_complete"style="display:inline-block;" onclick="return is_custom_complete(<%=custom.id%>,<%=@i%>);"></button>
+                        </form>
+                      <% end %>
+                      <% @i += 1%>
+                      </div>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="for_border">
+                <div class="daily_quest">
+                  <p class="quest_title">
+                    <span>Daily Quest</span>
+                  </p>
+                  <% @j = 0%>
+                  <% @daily_quests.each do |daily| %>
+                  <div>
+                    <% if daily.did == true %>
+                      <span class="quest_list daily_quest_list"><strike style="text-decoration-color:#FF9B9B; color:gray"><%=daily.content%></strike></span>
+                      <span class="quest_complete daily_complete" style="display:inline-block;">√</span>
+                      
+                    <% else%>
+                      <span class="quest_list daily_quest_list"><%=daily.content%></span>
+                      <form action="/main/daily" method="post" style="display:inline-block; float:right">
+                        <input id="daily_quest_id" type="hidden" value="<%=daily.id%>" name="daily_id"></input>
+                        <button type="submit" class="complete_btn daily_complete"style="display:inline-block;" onclick="return is_daily_complete(<%=daily.id%>,<%=@j%>);"></button>
+                      </form>
+                    <% end %>
+                    <% @j += 1%>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="for_border">
+                <div class="party_quest">
+                  <p class="quest_title">
+                    <span>Party Quest</span>
+                  </p>
+                  <% @k = 0%>
+                  <% @party_partners.each do |partner| %>
+                  <div>
+                    <% if partner.did == true %>
+                      <span class="quest_list party_quest_list"><strike style="text-decoration-color:#FF9B9B; color:gray"><%=partner.party_quest.content%></strike></span>
+                      <span class="quest_complete party_complete" style="display:inline-block;">√</span>
+                      
+                    <% else%>
+                      <span class="quest_list party_quest_list"><%= partner.party_quest.content%></span>
+                      <form action="/main/party" method="post" style="display:inline-block; float:right">
+                        <input id="party_quest_id" type="hidden" value="<%=partner.party_quest_id%>" name="party_id"></input>
+                        <button type="submit" class="complete_btn party_complete"style="display:inline-block;" onclick="return is_party_complete(<%=partner.party_quest_id%>,<%=@k%>);"></button>
+                      </form>
+                    <% end %>
+                    <% @k += 1%>
+                    </div>
+                  <% end %>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+      <div class="row">
+        <div class="col-xs-12 icons">
+          <div class="row">
+            <div class="col-xs-2 Home">
+                <a href="main"><%= image_tag("icon/ic1_02.png") %></a>
+            </div>
+            <div class="col-xs-2 Map">
+              <a href="map"><%= image_tag("icon/ic2_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Bag">
+              <a href="bag_item"><%= image_tag("icon/ic3_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Pet">
+              <a href="pet"><%= image_tag("icon/ic4_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Shop">
+              <a href="shop"><%= image_tag("icon/ic5_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Setting">
+              <div class="dropdown">
+             <%= image_tag("icon/ic6_01.png", :class=>"dropbtn", :onclick => "dropup_function()") %>            
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/users/sign_out"><%= image_tag("icon/ic8_01.png") %></a>
+              <a href="/etc/rank"><%= image_tag("icon/ic9_01.png") %></a>
+              <a href="/setting"><%= image_tag("icon/ic7_01.png") %></a>
+              <a href="/"><%= image_tag("icon/ic10_01.png") %></a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  <script>
+  
+  // ------------커스텀/칭호 모달 구역---------------------
+    var modal = document.getElementById('customModal');
+    var modal2 = document.getElementById('titleModal');
+    
+    // Get the button that opens the modal
+    var custombtn = document.getElementById("custombtn");
+    var titlebtn = document.getElementById("titlebtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close")[1];
+   
+    // When the user clicks the button, open the modal 
+    custombtn.onclick = function() {
+        modal.style.display = "block";
+    }
+    titlebtn.onclick = function() {
+        modal2.style.display = "block";
+        var title_button = document.getElementsByClassName("title_button");
+      
+        for(var cc=0; cc<title_button.length; cc++){
+          title_button[cc].classList.remove("active_title_btn");
+        }
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() {
+        modal.style.display = "none";
+    }
+    span.onclick = function() {
+        modal2.style.display = "none";
+    }
+    
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }else if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+
+  //커스텀 퀘스트 등록
+    function add_custom_quest(){
+      if(confirm("퀘스트를 등록하시겠습니까?")){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    
+    function change_date(idx){
+      var plus_date = document.getElementById("plus_date");
+      var input_date = document.getElementById("input_date");
+      var date_button = document.getElementsByClassName("date_button");
+      for(var bb= 0 ; bb<date_button.length; bb++){
+        date_button[bb].classList.remove("active_date_btn");
+      }
+      date_button[idx-1].classList.add("active_date_btn");
+      plus_date.innerHTML = idx;
+      input_date.value = idx;
+    }
+    
+    //칭호변경
+    function change_title(){
+      if(confirm("칭호를 변경하시겠습니까?")){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    
+    function title_change(selete_title_num, title_button_count){
+      var input_title = document.getElementById("input_title");
+      var title_button = document.getElementsByClassName("title_button");
+      
+      for(var cc=0; cc<title_button.length; cc++){
+        title_button[cc].classList.remove("active_title_btn");
+      }
+      title_button[title_button_count].classList.add("active_title_btn");
+      
+      
+      input_title.value = selete_title_num;
+    }
+    
+    //경험치바
+    var current_exp = document.getElementById("current_exp")
+    var need_exp = document.getElementById("max_exp")
+    
+    var width_percent = (parseFloat(current_exp.innerHTML) / parseFloat(need_exp.innerHTML)) * 100;
+    document.getElementById("current_exp_gage").style.width = width_percent + "%";
+    
+    
+    //커스텀 퀘스트 완료 미완료
+    function is_custom_complete(custom_id, i){
+      var custom_quest_id = document.getElementById("custom_quest_id");
+      var custom_quest_list = document.getElementsByClassName("custom_quest_list");
+      if(confirm("Custom Quest " + (i+1)+"번 \n'" + custom_quest_list[i].innerHTML + "'를 완료하시겠습니까?")){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    
+    //데일리 퀘스트 완료 미완료
+    function is_daily_complete(daily_id, j){
+      var daily_quest_id = document.getElementById("daily_quest_id");
+      var daily_quest_list = document.getElementsByClassName("daily_quest_list");
+      if(confirm("Daily Quest " + (j+1)+"번 \n'" + daily_quest_list[j].innerHTML + "'를 완료하시겠습니까?")){
+        return true
+      }
+      else{
+        return false
+      }
+    }
+    
+    
+    //파티 퀘스트 완료 미완료
+    function is_party_complete(party_id, k){
+      var party_quest_id = document.getElementById("party_quest_id");
+      var party_quest_list = document.getElementsByClassName("party_quest_list");
+      if(confirm("Party Quest " + (k+1)+"번 \n'" + party_quest_list[k].innerHTML + "'를 완료하시겠습니까?")){
+        return true
+      }
+      else{
+        return false
+      }
+    }
+
+  
+
+  </script>
+</body>
+</html>

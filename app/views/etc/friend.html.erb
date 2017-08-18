@@ -1,0 +1,37 @@
+<h3> 내 친구들 </h3>
+
+<h3> 내가 친구 신청해서 친구 됐어. </h3>
+<% @already_active_friends.each do |friend| %>
+    <h4>ID : <%= friend.receiver_id %> / EMAIL : <%= User.find(friend.receiver_id).email %></h4>
+<% end %>
+
+<h3> 쟤가 친구 신청해서 친구 됐어. </h3>
+<% @already_passive_friends.each do |friend| %>
+    <h4>ID : <%= friend.sender_id %> / EMAIL : <%= User.find(friend.sender_id).email %></h4>
+<% end %>
+
+<h3>*******</h3>
+
+<h3> 친구 수락을 기다리고 있는 목록이에요. = 내가 친구 신청해서 기다리는 중. </h3>
+<% @waiting_active_friends.each do |friend| %>
+    <h4>ID : <%= friend.receiver_id %> / EMAIL : <%= User.find(friend.receiver_id).email %></h4>
+<% end %>
+
+<h3>*******</h3>
+
+<h3> 친구 신청이 도착했어요! = 쟤가 친구 신청해서 기다리는 중.</h3>
+<% @waiting_passive_friends.each do |friend| %>
+    <h4>ID : <%= friend.sender_id %> / EMAIL : <%= User.find(friend.sender_id).email %></h4>
+<% end %>
+
+<h3>*******</h3>
+<h3> 모든 회원 목록이에요! 친구 신청을 해보세요! </h3>
+<% @users.each do |user| %>
+    <h4> <%= user.email %></h4>
+<% end %>
+
+<h3>*******</h3>
+<h3> 아직 친구가 아니에요! 친구 신청을 해보세요! </h3>
+<% @users.each do |user| %>
+    <h4> <%= %></h4>
+<% end %>

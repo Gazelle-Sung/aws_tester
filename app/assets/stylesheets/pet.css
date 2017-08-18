@@ -1,0 +1,153 @@
+@font-face {
+  font-family: firstFont;
+  src:url('font/FreePixel.ttf')
+}
+@font-face {
+  font-family: secondFont;
+  src:url('font/PressStart2P.ttf')
+}
+@font-face {
+  font-family: thirdFont;
+  src:url('font/DungGeunMo.woff')
+}
+@font-face {
+  font-family: fourthFont;
+  src:url('font/Pxlvetica.ttf')
+}
+#pet_page_name{
+  font-family: secondFont, thirdFont;
+  font-size:11px;
+  font-weight: 500;
+  color: #FF5974;
+  letter-spacing:-1px;
+}
+
+#pet_section{
+  height:100%;
+  margin-bottom: 10vh;
+  font-family: fourthFont, thirdFont;
+  max-width: 420px;
+}
+.pet_welcome{
+  display:block;
+  height:auto;
+  font-family: secondFont, thirdFont;
+  font-size:8px;
+  background-color: #6A84EF;
+  text-align: center;
+  color:#FFF9CF;
+}
+.pet_welcome p{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+/*pet info*/
+.pet_info{
+  margin-top: 5px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.pet_list{
+	width:33%;
+	height:auto;
+	font-size:12px;
+  padding:4px;
+	float:left;
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  opacity: 0.6;
+}
+
+.pet_list:hover{
+  opacity: 1;
+}
+
+.pet_list .pet_imgholder img{
+	max-width:100%;
+	background:#f1f1f1;
+    display:block;
+}
+
+.pet_detail_info{
+  background-color: #BBFFE7;
+}
+.pet_title_name{
+  font-family: secondFont, thirdFont;
+  text-align: left;
+  display:block;
+  font-size:8px;
+  padding-left:5px;
+  margin-bottom: 0px;
+  padding-top: 5px;
+  letter-spacing:-1px;
+  color:#7BBAA4;
+}
+
+.pet_name{
+  font-family: secondFont, thirdFont;
+  text-align: left;
+  display:block;
+  font-size:8px;
+  padding-left:5px;
+  margin-bottom: 0px;
+  letter-spacing:-1px;
+  color:#7BBAA4;
+}
+.pet_day{
+  font-family: fourthFont, thirdFont;
+  color:#B6B6B6;
+  text-align: left;
+	display:block;
+  padding-left:5px;
+	font-size:12px;
+  margin-bottom: 0px;
+}
+
+.active_pet{
+  opacity: 1;
+}
+
+.active_pet .pet_imgholder{
+	background:#FF5974;
+}
+.active_pet .pet_imgholder img{
+  background:white;
+  border: 5px solid #FF5974;
+}
+.active_pet .pet_name{
+  color: #7EFACF;
+}
+.active_pet .pet_detail_info{
+  background-color: #FF5974;
+}
+.active_pet .pet_day{
+  color:#f1f1f1;
+}
+.active_pet .pet_title_name{
+  color: #7EFACF;  
+}
+
+@media only screen
+  and (min-device-width: 420px) {
+    #pet_body{
+      background-color: rgb(129,251,207) !important;
+      width: 100vw;
+      height:100%;
+    }
+    #pet_section{
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0;
+      font-family: firstFont, thirdFont;
+      border-left: 10px solid black;
+      border-right: 10px solid black;
+      background-color: white;
+    }
+  }

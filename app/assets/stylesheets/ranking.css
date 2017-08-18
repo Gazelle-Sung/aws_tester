@@ -1,0 +1,372 @@
+.ranking_name_holder{
+  margin-top:20px;
+  text-align: center;
+  font-weight: 600;
+  font-family: firstFont;
+  margin-bottom:  0px;
+}
+#ranking_holder_name{
+  font-family: secondFont, thirdFont;
+  font-size:13px;
+  font-weight: 500;
+  color: #FF5974;
+  letter-spacing:-1px;
+}
+#top3_title{
+  font-family: secondFont, thirdFont;
+  font-size:11px;
+  font-weight: 500;
+  color: #FF5974;
+  letter-spacing:-1px;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+/*character*/
+#ranking_section{
+  height:100%;
+  margin-bottom: 10vh;
+  font-family: firstFont, thirdFont;
+  max-width: 420px;
+}
+.rank_classifier{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  background-color: #6A84EF;
+}
+.top_rank{
+    width:100%;
+    height: auto;
+    min-height:326px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.top23{
+    padding-top:20px;
+    background-color: #e1e1e1;
+}
+.rank_user_name{
+    font-family: secondFont, thirdFont;
+    font-size: 8px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+.number2{
+    top:50px;
+    width:33%;
+    height: auto;
+    display:inline-block;
+    padding-right: 0px !important;
+}
+.number1{
+    top:15px;
+    width:33%;
+    height: auto;
+    display:inline-block;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.number3{
+    top:85px;
+    width:33%;
+    height: auto;
+    display:inline-block;
+    padding-left: 0px !important;
+}
+
+.number2_character{
+    position: absolute;
+    width:100%;
+}
+.number1_character{
+    position: absolute;
+    width:100%;
+}
+.number3_character{
+    position: absolute;
+    width:100%;
+}
+.number2_character img{
+    width:100%;
+}
+.number2_pet{
+    position: absolute;
+    width:33%;
+    height: auto;
+    bottom:75px;
+}
+.number2_pet img{
+    width: 100%;
+}
+.number2_clothes{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.number2_clothes img{
+    width: 100%;
+}
+.number2_hat{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.number2_hat img{
+    width: 100%;
+}
+
+
+.number1_character img{
+    width:100%;
+}
+.number1_pet{
+    position: absolute;
+    width:33%;
+    height: auto;
+    bottom:110px;
+}
+.number1_pet img{
+    width: 100%;
+}
+.number1_clothes{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.number1_clothes img{
+    width: 100%;
+}
+.number1_hat{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.number1_hat img{
+    width: 100%;
+}
+
+
+.number3_character img{
+    width:100%;
+}
+.number3_pet{
+    position: absolute;
+    width:33%;
+    height: auto;
+    bottom:40px;
+}
+.number3_pet img{
+    width: 100%;
+}
+.number3_clothes{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.number3_clothes img{
+    width: 100%;
+}
+.number3_hat{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.number3_hat img{
+    width: 100%;
+}
+
+
+.number2_platform{
+    background-color: #e1e1e1;
+    height:75px;
+    text-align: center;
+    padding-top:30px;
+    color: #6A84EF;
+    font-family: secondFont;
+    font-size: 15px;
+}
+.number1_platform{
+    background-color: #e1e1e1;
+    height:110px;
+    text-align: center;
+    padding-top:50px;
+    color: #6A84EF;
+    font-family: secondFont;
+    font-size: 17px;
+}
+.number3_platform{
+    background-color: #e1e1e1;
+    height:40px;
+    text-align: center;
+    padding-top:15px;
+    color: #6A84EF;
+    font-family: secondFont;
+    font-size: 15px;
+}
+.rank_LV{
+    text-align: right;
+    font-family: fourthFont, thirdFont;
+    margin-top: 5px;
+    padding-right: 40px;
+    margin-bottom: 0px;
+    font-size: 13px;
+}
+
+#bronze{
+    position: absolute;
+    left:50%;
+    transform: translateX(-180%);
+    width:20%;
+}
+#bronze img{
+    width:100%;
+}
+#silver{
+    position: absolute;
+    left:50%;
+    transform: translateX(-180%);
+    width:20%;
+}
+#silver img{
+    width:100%;
+}
+#gold{
+    position: absolute;
+    left:50%;
+    transform: translateX(-180%);
+    width:20%;
+}
+#gold img{
+    width:100%;
+}
+
+.other_people{
+    height:120px;
+    display: block;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    padding-top: 10px;
+}
+.other_people2{
+    height:120px;
+    display: block;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #e1e1e1;
+    padding-top: 10px;
+}
+
+.top23_character{
+    position: absolute;
+    width:50%;
+    left:15px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    display:inline-block;
+}
+.top23_info{
+    width:50%;
+    left:50%;
+}
+.top23_character img{
+    width:100%;
+}
+.top23_character_hat{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.top23_character_hat img{
+    width: 100%;
+}
+.top23_character_clothes{
+    position: absolute;
+    width: 100%;
+    height:auto;
+}
+.top23_character_clothes img{
+    width: 100%;
+}
+.top23_character_pet{
+    position: absolute;
+    width:33%;
+    height: auto;
+    bottom:0;
+    right:0;
+}
+.top23_character_pet img{
+    width:100%;
+}
+.other_rank_LV{
+    text-align: center;
+    font-family: fourthFont, thirdFont;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 13px;
+}
+.other_user_rank{
+    font-family: secondFont, thirdFont;
+    font-size: 9px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color:#FF5974;
+}
+
+
+.rank_for_pet{
+    display: none;
+}
+.rank_for_quest{
+    display: none;
+}
+.rank_for_coin{
+    display: none;
+}
+
+.rank_active_btn{
+  font-size:15px;
+  color: #FF5974;
+  background-color: #7EFACF;
+  border: 0.5px solid #6A84EF;
+  border-radius: 8px;
+  margin-left: 1px;
+  margin-right: 1px;
+  width:16%;
+}
+.rank_active_btn:focus{
+  outline: none;
+}
+
+@media only screen
+  and (min-device-width: 420px) {
+    #ranking_body{
+      background-color: rgb(129,251,207) !important;
+      width: 100vw;
+      height:100%;
+    }
+    #ranking_section{
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0;
+      font-family: firstFont,   thirdFont;
+      padding:10px;
+      border-left: 10px solid black;
+      border-right: 10px solid black;
+      background-color: white;
+    }
+    .top_rank{
+    width:100%;
+    height: auto;
+    min-height:326px;
+    padding-left: 0px !important;
+    padding-right: 10px !important;
+    }
+    
+  }

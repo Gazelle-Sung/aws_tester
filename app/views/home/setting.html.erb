@@ -1,0 +1,72 @@
+<body>
+  <header>
+    <div class="logo">
+      <%= image_tag("logo.png") %>
+    </div>
+  </header>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 how_to_play">
+          <p class="title">HOW TO PLAY</p>
+          <div class="play_info">
+
+          </div>
+        </div>
+        <div class="col-xs-12 contact_us">
+          <p class="title"> CONTACT US</p>
+          <form action="", id="contact_form">
+            <label for="Email">Your Email</label>
+            <br>
+            <input type="Email", name="Email">
+            <br>
+            <label for="comment">Content</label>
+          </form>
+          ​<textarea name="comment" form="contact_form" rows="10" cols="45"></textarea>
+          <p style="text-align:center"><button type="submit", class="custom_btn">보내기</button></p>
+          <div class="icon">
+            FACEBOOK &nbsp
+            LIKELION-HONGIK
+          </div>
+        </div>
+        <div class="col-xs-12 Made_By">
+          <p class="title"> MADE BY</p>
+          강다예 배준한 성민규 신우환 이민주 이주하
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="row">
+      <div class="col-xs-12 icons">
+        <div class="row">
+          <div class="col-xs-2 Home">
+              <a href="main"><%= image_tag("icon/ic1_01.png") %></a>
+          </div>
+          <div class="col-xs-2 Map">
+            <a href="map"><%= image_tag("icon/ic2_01.png") %></a>
+          </div>
+          <div class="col-xs-2 Bag">
+            <a href="bag_item"><%= image_tag("icon/ic3_01.png") %></a>
+          </div>
+          <div class="col-xs-2 Pet">
+            <a href="pet"><%= image_tag("icon/ic4_01.png") %></a>
+          </div>
+          <div class="col-xs-2 Shop">
+            <a href="shop"><%= image_tag("icon/ic5_01.png") %></a>
+          </div>
+          <div class="col-xs-2 Setting">
+            <div class="dropdown">
+           <%= image_tag("icon/ic6_01.png", :class=>"dropbtn", :onclick => "dropup_function()") %>            
+          <div class="dropdown-content" id="myDropdown">
+            <a href="/users/sign_out"><%= image_tag("icon/ic8_01.png") %></a>
+              <a href="/etc/rank"><%= image_tag("icon/ic9_01.png") %></a>
+              <a href="/setting"><%= image_tag("icon/ic7_02.png") %></a>
+              <a href="/"><%= image_tag("icon/ic10_01.png") %></a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>

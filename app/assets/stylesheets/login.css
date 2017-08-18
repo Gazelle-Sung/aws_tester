@@ -1,0 +1,216 @@
+@font-face {
+  font-family: firstFont;
+  src:url('font/FreePixel.ttf')
+}
+#login_section{
+  width:100%;
+  height:100%;
+  font-family: firstFont, thirdFont;
+  max-width: 420px;
+  max-height: 675px;
+}
+
+.login_background{
+  width:100%;
+  min-height: 100vh;
+  height:auto;
+  z-index:0;
+  background-image: url("background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.login_logo{
+  position:absolute;
+  padding-top: 10vh;
+  width:50%;
+  transform: translateX(50%);
+  height:auto;
+  z-index:3;
+  text-align: center;
+}
+
+.login_logo img{
+  width:100%;
+  max-width: 200px;
+  height:100%;
+}
+
+#cloud1{
+  position:absolute;
+  width:50%;
+  transform: translateX(100%);
+  text-align: right;
+  animation: cloud1move 5s infinite alternate linear;
+}
+@keyframes cloud1move{
+  0%   {transform: translate(100%,0%);}
+  50%  {transform: translate(110%,5%);}
+  100%   {transform: translate(100%,-10%);}
+}
+
+#cloud1 img{
+  width:100%;
+  max-width: 300px;
+  height:auto;
+}
+
+#cloud2{
+  position:absolute;
+  width:50%;
+  transform: translateX(110%);
+  text-align: right;
+  top: 30vh;
+  animation: cloud2move 3s infinite alternate ease;
+}
+@keyframes cloud2move{
+  0%   {transform: translate(105%,-15%);}
+  50%  {transform: translate(110%,-5%);}
+  100%   {transform: translate(100%,0%);}
+}
+
+#cloud2 img{
+  width:80%;
+  max-width: 250px;
+  height:auto;
+}
+
+#cloud3{
+  position:absolute;
+  width:50%;
+  text-align: left;
+  top:13vh;
+  animation: cloud3move 4s infinite alternate ease;
+}
+@keyframes cloud3move{
+  0%   {transform: translate(-5%,0%);}
+  50%  {transform: translate(-15%,0%);}
+  100%   {transform: translate(0%,5%);}
+}
+
+#cloud3 img{
+  width:80%;
+  max-width: 250px;
+  height:auto;
+}
+
+#login_boat{
+  position:absolute;
+  text-align: right;
+  width:50%;
+  top:50vh;
+  animation: boatmove 20s infinite alternate ease;
+}
+
+#login_boat img{
+  width:15%;
+  max-width: 50px;
+  height:auto;
+}
+@keyframes boatmove{
+  0%   {transform: translate(-50%,-200%);}
+  25%   {transform: translate(70%,0%);}
+  50%   {transform: translate(-50%,400%);}
+  80%   {transform: translate(20%,550%);}
+  100%   {transform: translate(70%,800%);}
+}
+
+.login{
+  position: absolute;
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+  margin-right: 25%;
+  height:30vh;
+  top: 50%;
+  transform: translateY(-25%);
+  text-align: center;
+  background-color: transparent;
+}
+
+.login input{
+  background-color: rgb(37, 37, 37);
+  border-style: none;
+  width:60%;
+  max-width:150px;
+  height:20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color:white;
+  font-family: firstFont;
+}
+
+.login input::-webkit-input-placeholder {
+   color: white;
+   text-align: center;
+}
+
+
+
+.login button{
+  margin-top: 15px;
+  border-style: none;
+  background-color: transparent;
+  text-decoration: none;
+  width:100%;
+  height:auto;
+}
+
+
+
+
+.login button:focus{
+  text-decoration: none;
+  outline:none;
+  border:none;
+}
+
+.login img{
+  width:100%;
+  height:auto;
+  max-width:200px;
+}
+
+
+@media only screen and (min-device-width: 376px) {
+  #login_body{
+    background-color:rgb(129,251,207) !important;
+    width:100vw;
+    height:100vh;
+  }
+  #login_section{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    border: 20px solid black;
+    border-radius: 10px;
+  }
+  #cloud2{
+    top: 17vh;
+  }
+  #cloud3{
+    top:10vh;
+  }
+  .login_background{
+    width:100%;
+    height:675px;
+    min-height: 630px;
+    height:auto;
+    z-index:0;
+    background-image: url("background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+  
+  @keyframes boatmove{
+    0%   {transform: translate(-50%,-800%);}
+    25%   {transform: translate(70%,-600%);}
+    50%   {transform: translate(-50%,-200%);}
+    80%   {transform: translate(20%,-50%);}
+    100%   {transform: translate(70%,200%);}
+  }
+  
+}

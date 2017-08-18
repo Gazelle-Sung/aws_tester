@@ -1,0 +1,49 @@
+<%= form_for(@menu) do |f| %>
+  <% if @menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+      <ul>
+      <% @menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :type_num %><br>
+    <%= f.number_field :type_num %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :need_coin %><br>
+    <%= f.number_field :need_coin %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :coin_percent %><br>
+    <%= f.text_field :coin_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :exp_percent %><br>
+    <%= f.text_field :exp_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :other_percent %><br>
+    <%= f.text_field :other_percent %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

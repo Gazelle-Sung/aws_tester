@@ -1,0 +1,672 @@
+<body id="map_body">
+  <div id="loader">
+    <div id="map_cloud1">
+      <%= image_tag("map/mapcloud03.png") %>
+    </div>
+    <div id="map_cloud2">
+      <%= image_tag("map/mapcloud03.png") %>
+    </div>
+    <div id="map_cloud3">
+      <%= image_tag("map/mapcloud.png") %>
+    </div>
+    <div id="map_cloud4">
+      <%= image_tag("map/mapcloud05.png") %>
+    </div>
+    <div id="map_cloud5">
+      <%= image_tag("map/mapcloud06.png") %>
+    </div>
+    <div class="startIsland">
+      <div class="imgholder">
+        <p>출발 섬</p>
+        <%= image_tag("island/current_island.png", id:"startIsland_img")  %>
+      </div>
+    </div>
+    <div class="ship">
+      <div class="imgholder">
+        <%= image_tag("map/boat.png") %>
+      </div>
+    </div>
+    <div class="endIsland">
+      <div class="imgholder">
+        <p>도착 섬</p>
+        <%= image_tag("island/island.png", id:"endIsland_img")  %>
+      </div>
+    </div>
+  </div>
+  <div id="afterLoading" class="animate-bottom">
+    <header>
+      <div class="map_name_holder">
+        <p id="map_name">Map</p>
+      </div>
+    </header>
+    <section id="map_section">
+      <div class="container-fluid">
+        <!--side Cloud-->
+        <div id="map_cloud1">
+          <%= image_tag("map/mapcloud03.png") %>
+        </div>
+        <div id="map_cloud2">
+          <%= image_tag("map/mapcloud03.png") %>
+        </div>
+        <div id="map_cloud3">
+          <%= image_tag("map/mapcloud.png") %>
+        </div>
+        <div id="map_cloud4">
+          <%= image_tag("map/mapcloud05.png") %>
+        </div>
+        <div id="map_cloud5">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+        <div id="map_cloud6">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+        <div id="map_cloud7">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+        <div id="map_cloud8">
+          <%= image_tag("map/mapcloud03.png") %>
+        </div>
+        <div id="map_cloud10">
+          <%= image_tag("map/mapcloud05.png") %>
+        </div>
+        <div id="map_cloud11">
+          <%= image_tag("map/mapcloud02.png") %>
+        </div>
+        <div id="map_cloud12">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+        <div id="map_cloud13">
+          <%= image_tag("map/mapcloud04.png") %>
+        </div>
+        <div id="map_cloud14">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+
+
+        <!--Big Cloud-->
+        <div id="map_big_cloud1">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+        <div id="map_big_cloud2">
+          <%= image_tag("map/mapcloud04.png") %>
+        </div>
+        <div id="map_big_cloud3">
+          <%= image_tag("map/mapcloud02.png") %>
+        </div>
+        <div id="map_big_cloud4">
+          <%= image_tag("map/mapcloud05.png") %>
+        </div>
+        <div id="map_big_cloud5">
+          <%= image_tag("map/mapcloud.png") %>
+        </div>
+        <div id="map_big_cloud6">
+          <%= image_tag("map/mapcloud06.png") %>
+        </div>
+        <div id="map_big_cloud7">
+          <%= image_tag("map/mapcloud02.png") %>
+        </div>
+
+        <!--island-->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row Islands">
+              <div class="col-xs-12 Island">
+                <div class="imgholder">
+                  <p class="map_island_name">튜토리얼 섬</p>
+                  <%if current_user.island == 0%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="0"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(0);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island">
+                <p class="map_island_name">시바 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 1%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="1"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(1);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island">
+                <p class="map_island_name">고양이 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 2%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="2"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(2);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-4 Island">
+                <p class="map_island_name">다람쥐 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 3%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="3"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(3);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-4 Island">
+                <p class="map_island_name">파티퀘스트 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 20%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="20"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(20);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-4 Island">
+                <p class="map_island_name">아기사슴 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 4%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="4"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(4);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="row Islands">
+              <div class="col-xs-6 Island">
+                <p class="map_island_name">거북이 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 5%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="5"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(5);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island">
+                <p class="map_island_name">앵무새 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 6%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="6"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(6);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island">
+                <p class="map_island_name">올빼미 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 7%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="7"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(7);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island">
+                <p class="map_island_name">토끼 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 8%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="8"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(8);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-4 Island">
+                <p>나무늘보 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 9%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="9"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(9);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-4 Island">
+                <p>붉은여우 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 10%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="10"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(10);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-4 Island">
+                <p class="map_island_name">곰 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 11%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="11"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(11);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="row Islands">
+              <div class="col-xs-6 Island special">
+                <p class="map_island_name">북극곰 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 12%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="12"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(12);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island special">
+                <p class="map_island_name">펭귄 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 13%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="13"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(13);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island special">
+                <p class="map_island_name">사자 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 14%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="14"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(14);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-6 Island special">
+                <p class="map_island_name">호랑이 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 15%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="15"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(15);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+              <div class="col-xs-12 Island special">
+                <p class="map_island_name">용 섬</p>
+                <div class="imgholder">
+                  <%if current_user.island == 16%>
+                    <%= image_tag("island/current_island.png")  %>
+                    <%= image_tag("map/boatmap.png", id:"boat") %>
+                  <%else%>
+                  <form method="post" action="/map/move_island">
+                    <input type="hidden" name="move_island" value="16"></input>
+                    <button type="submit" class="move_island_btn" onclick="return click_island(16);"><%= image_tag("island/island.png")%></button>
+                  </form>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="row">
+        <div class="col-xs-12 icons">
+          <div class="row">
+            <div class="col-xs-2 Home">
+                <a href="main"><%= image_tag("icon/ic1_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Map">
+              <a href="map"><%= image_tag("icon/ic2_02.png") %></a>
+            </div>
+            <div class="col-xs-2 Bag">
+              <a href="bag_item"><%= image_tag("icon/ic3_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Pet">
+              <a href="pet"><%= image_tag("icon/ic4_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Shop">
+              <a href="shop"><%= image_tag("icon/ic5_01.png") %></a>
+            </div>
+            <div class="col-xs-2 Setting">
+              <div class="dropdown">
+             <%= image_tag("icon/ic6_01.png", :class=>"dropbtn", :onclick => "dropup_function()") %>            
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/users/sign_out"><%= image_tag("icon/ic8_01.png") %></a>
+              <a href="/etc/rank"><%= image_tag("icon/ic9_01.png") %></a>
+              <a href="/setting"><%= image_tag("icon/ic7_01.png") %></a>
+              <a href="/"><%= image_tag("icon/ic10_01.png") %></a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+<script>
+  function click_island(i){
+    var click_island_name =""
+    switch(i) {
+        case 0:
+          click_island_name = "튜토리얼 섬"
+          break;
+        case 1:
+          click_island_name = "시바 섬"
+          break;
+        case 2:
+          click_island_name = "고양이 섬"
+          break;
+        case 3:
+          click_island_name = "다람쥐 섬"
+          break;
+        case 4:
+          click_island_name = "아기사슴 섬"
+          break;
+        case 5:
+          click_island_name = "거북이 섬"
+          break;
+        case 6:
+          click_island_name = "앵무새 섬"
+          break;
+        case 7:
+          click_island_name = "올뺴미 섬"
+          break;
+        case 8:
+          click_island_name = "토끼 섬"
+          break;
+        case 9:
+          click_island_name = "나무늘보 섬"
+          break;
+        case 10:
+          click_island_name = "붉은여우 섬"
+          break;
+        case 11:
+          click_island_name = "곰섬 섬"
+          break;
+        case 12:
+          click_island_name = "북극곰 섬"
+          break;
+        case 13:
+          click_island_name = "펭귄 섬"
+          break;
+        case 14:
+          click_island_name = "사자 섬"
+          break;
+        case 15:
+          click_island_name = "호랑이 섬"
+          break;
+        case 16:
+          click_island_name = "용 섬"
+          break;
+        case 20:
+          click_island_name = "파티퀘스트 섬"
+          break;
+        default:
+          click_island_name = "튜토리얼 섬"
+      }
+    
+   if(confirm(click_island_name+"으로 이동하시겠습니까?")){
+    var myVar = setTimeout(showPage, 0000);
+    function showPage() {
+      var body = document.body;
+      body.scrollTop = "0";
+      $("#afterLoading").fadeOut(0000);
+      $("#loader").fadeIn(500);
+      
+      var startIsland_div = document.getElementsByClassName("startIsland");
+      var endIsland_div = document.getElementsByClassName("endIsland");
+      var startIsland = startIsland_div[0].getElementsByTagName("p");
+      var endIsland = endIsland_div[0].getElementsByTagName("p");
+      console.log(startIsland);
+      switch(i) {
+        case 0:
+          endIsland[0].innerHTML = "튜토리얼 섬"
+          break;
+        case 1:
+          endIsland[0].innerHTML = "시바 섬"
+          break;
+        case 2:
+          endIsland[0].innerHTML = "고양이 섬"
+          break;
+        case 3:
+          endIsland[0].innerHTML = "다람쥐 섬"
+          break;
+        case 4:
+          endIsland[0].innerHTML = "아기사슴 섬"
+          break;
+        case 5:
+          endIsland[0].innerHTML = "거북이 섬"
+          break;
+        case 6:
+          endIsland[0].innerHTML = "앵무새 섬"
+          break;
+        case 7:
+          endIsland[0].innerHTML = "올뺴미 섬"
+          break;
+        case 8:
+          endIsland[0].innerHTML = "토끼 섬"
+          break;
+        case 9:
+          endIsland[0].innerHTML = "나무늘보 섬"
+          break;
+        case 10:
+          endIsland[0].innerHTML = "붉은여우 섬"
+          break;
+        case 11:
+          endIsland[0].innerHTML = "곰섬 섬"
+          break;
+        case 12:
+          endIsland[0].innerHTML = "북극곰 섬"
+          break;
+        case 13:
+          endIsland[0].innerHTML = "펭귄 섬"
+          break;
+        case 14:
+          endIsland[0].innerHTML = "사자 섬"
+          break;
+        case 15:
+          endIsland[0].innerHTML = "호랑이 섬"
+          break;
+        case 16:
+          endIsland[0].innerHTML = "용 섬"
+          break;
+        case 20:
+          endIsland[0].innerHTML = "파티퀘스트 섬"
+          break;
+        default:
+          endIsland[0].innerHTML = "튜토리얼 섬"
+      }
+      
+      switch(<%=current_user.island%>) {
+        case 0:
+          startIsland[0].innerHTML = "튜토리얼 섬"
+          break;
+        case 1:
+          startIsland[0].innerHTML = "시바 섬"
+          break;
+        case 2:
+          startIsland[0].innerHTML = "고양이 섬"
+          break;
+        case 3:
+          startIsland[0].innerHTML = "다람쥐 섬"
+          break;
+        case 4:
+          startIsland[0].innerHTML = "아기사슴 섬"
+          break;
+        case 5:
+          startIsland[0].innerHTML = "거북이 섬"
+          break;
+        case 6:
+          startIsland[0].innerHTML = "앵무새 섬"
+          break;
+        case 7:
+          startIsland[0].innerHTML = "올뺴미 섬"
+          break;
+        case 8:
+          startIsland[0].innerHTML = "토끼 섬"
+          break;
+        case 9:
+          startIsland[0].innerHTML = "나무늘보 섬"
+          break;
+        case 10:
+          startIsland[0].innerHTML = "붉은여우 섬"
+          break;
+        case 11:
+          startIsland[0].innerHTML = "곰섬 섬"
+          break;
+        case 12:
+          startIsland[0].innerHTML = "북극곰 섬"
+          break;
+        case 13:
+          startIsland[0].innerHTML = "펭귄 섬"
+          break;
+        case 14:
+          startIsland[0].innerHTML = "사자 섬"
+          break;
+        case 15:
+          startIsland[0].innerHTML = "호랑이 섬"
+          break;
+        case 16:
+          startIsland[0].innerHTML = "용 섬"
+          break;
+        case 20:
+          startIsland[0].innerHTML = "파티퀘스트 섬"
+          break;
+        default:
+          startIsland[0].innerHTML = "튜토리얼 섬"
+      }
+      
+      
+      var myVar2 = setTimeout(disapearPage, 5000);
+      
+      var change_Island = setTimeout(function(){
+        var change_startIsland_img = document.getElementById("startIsland_img");
+        var change_endIsland_img = document.getElementById("endIsland_img");
+        var ship = document.getElementsByClassName("ship");
+        ship[0].style.transform = "translate(20%,900%)";
+        change_startIsland_img.src = "/assets/island/island.png";
+        change_endIsland_img.src = "/assets/island/current_island.png";
+      }, 4300)
+
+      }
+    function disapearPage(){
+      $("#loader").fadeOut(500);
+      $("#afterLoading").fadeIn(3000);
+      var change_Island = setTimeout(function(){
+        var change_startIsland_img = document.getElementById("startIsland_img");
+        var change_endIsland_img = document.getElementById("endIsland_img");
+        change_startIsland_img.src = "/assets/island/current_island.png";
+        change_endIsland_img.src = "/assets/island/island.png";
+        return true;
+      }, 1000)
+    }
+  }
+  else{
+    return false;
+    
+  }
+}
+var map_big_cloud1 = document.getElementById("map_big_cloud1");
+var map_big_cloud2 = document.getElementById("map_big_cloud2");
+var map_big_cloud3 = document.getElementById("map_big_cloud3");
+var map_big_cloud4 = document.getElementById("map_big_cloud4");
+var map_big_cloud5 = document.getElementById("map_big_cloud5");
+var map_big_cloud6 = document.getElementById("map_big_cloud6");
+var map_big_cloud7 = document.getElementById("map_big_cloud7");
+
+
+if (<%=current_user.level%> >= 70){
+  map_big_cloud1.style.display = "none";
+  map_big_cloud2.style.display = "none";
+  map_big_cloud3.style.display = "none";
+  map_big_cloud4.style.display = "none";
+  map_big_cloud5.style.display = "none";
+  map_big_cloud6.style.display = "none";
+  map_big_cloud7.style.display = "none";
+}
+else if (<%=current_user.level%> >= 50){
+  map_big_cloud1.style.display = "none";
+  map_big_cloud2.style.display = "none";
+  map_big_cloud3.style.display = "none";
+  map_big_cloud4.style.display = "none";
+  map_big_cloud5.style.display = "none";
+  map_big_cloud6.style.display = "none";
+}
+else if (<%=current_user.level%> >= 30){
+  map_big_cloud1.style.display = "none";
+  map_big_cloud2.style.display = "none";
+  map_big_cloud3.style.display = "none";
+  map_big_cloud4.style.display = "none";
+}
+else if (<%=current_user.level%> >= 10){
+  map_big_cloud1.style.display = "none";
+  map_big_cloud2.style.display = "none";
+}
+</script>

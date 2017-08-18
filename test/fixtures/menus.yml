@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  type_num: 1
+  name: MyString
+  need_coin: 1
+  description: MyString
+  coin_percent: 1.5
+  exp_percent: 1.5
+  other_percent: 1.5
+
+two:
+  category: MyString
+  type_num: 1
+  name: MyString
+  need_coin: 1
+  description: MyString
+  coin_percent: 1.5
+  exp_percent: 1.5
+  other_percent: 1.5

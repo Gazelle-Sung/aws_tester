@@ -1,0 +1,36 @@
+.how_to_play{
+  min-height: 30vh !important;
+  height:100%;
+}
+
+
+.contact_us{
+  border-top: 3px dotted gray;
+  padding-top:10px;
+  min-height: 30vh !important;
+  height:100%;
+
+}
+.title{
+  text-align: center;
+  font-weight: 600;
+  font-size:20px;
+}
+.custom_btn{
+  border:2px solid black;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.icon{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.Made_By{
+  border-top: 3px dotted gray;
+  padding-top:10px;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 13vh;
+}

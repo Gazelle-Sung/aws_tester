@@ -1,0 +1,312 @@
+@font-face {
+  font-family: firstFont;
+  src:url('font/FreePixel.ttf')
+}
+@font-face {
+  font-family: secondFont;
+  src:url('font/PressStart2P.ttf')
+}
+@font-face {
+  font-family: thirdFont;
+  src:url('font/DungGeunMo.woff')
+}
+@font-face {
+  font-family: fourthFont;
+  src:url('font/Pxlvetica.ttf')
+}
+
+div .col-xs-5{
+  padding-right: 2px !important;
+}
+div .col-xs-3{
+  padding-right: 2px !important;
+  padding-left: 2px !important;
+}
+
+
+.current_island_name_holder{
+  margin-top:20px;
+  text-align: center;
+  font-weight: 600;
+  font-family: firstFont;
+  margin-bottom:  0px;
+}
+#current_island_name{
+  font-family: secondFont, thirdFont;
+  font-size:13px;
+  font-weight: 500;
+  color: #FF5974;
+  letter-spacing:-1px;
+}
+/*character*/
+#main_section{
+  height:100%;
+  margin-bottom: 10vh;
+  font-family: firstFont, thirdFont;
+  max-width: 420px;
+}
+.current_island{
+  width: 100%;
+  height:auto;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.current_island img{
+  width: 100%;
+  height:auto;
+}
+
+.character_info{
+  width: 100%;
+  height: 100%;
+  background-color: #FF9B9B;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top:10px;
+  min-height:180px !important;
+}
+.character_img{
+  display:inline-block;
+  width:100%;
+  background-color: white;
+  margin: 5px;
+  max-width: 150px;
+  text-align: center;
+}
+
+#main_character{
+  width:100%;
+  height:auto;
+}
+.character_hat{
+  width:100%;
+  max-width: 150px;
+  text-align: center;
+  position: absolute;
+}
+.character_hat img{
+  width:100%;
+}
+
+.character_clothes{
+  width:100%;
+  max-width: 150px;
+  text-align: center;
+  position: absolute;
+}
+.character_clothes img{
+  width:100%;
+}
+
+.character_bag{
+  width:100%;
+  max-width: 150px;
+  text-align: center;
+  position: absolute;
+}
+.character_bag img{
+  width:100%;
+}
+
+.user_name_holder{
+  padding-top:5px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.character_LV{
+  text-align: center;
+  height:100%;
+  margin-top:5px;
+  margin-bottom:6px;
+  font-weight: 600;
+}
+
+.character_LV p{
+  margin-bottom: 0px;
+  font-size:17px;
+}
+.animal_img{
+  display:inline-block;
+  width:100%;
+  height:100%;
+  background-color: white;
+  min-height: 60px;
+  margin:5px;
+}
+.animal_img img{
+  width:100%;
+  height:100%;
+}
+.character_status{
+  display:inline-block;
+  width:100%;
+  margin-top:5px;
+}
+.character_status p{
+  margin-bottom: 2px;
+}
+#title_name{
+  margin-top:5px;
+  font-size:11px;
+  text-align: center;
+  margin-bottom:0px;
+}
+#user_id{
+  margin-top:3px;
+  text-align: center;
+  font-size:11px;
+  font-weight: bold;
+  margin-bottom:2px;
+}
+#my_pet_name{
+  text-align: center;
+  font-size:11px;
+  margin-bottom:0px;
+  margin-top:-10px;
+}
+.status_name{
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.exp_gage{
+  margin-right: 10px;
+  width:90%;
+  height:10px;
+  background-color: #F5F995;
+  border-radius: 10px;
+}
+#current_exp_gage{
+  position: relative;;
+  width:70%;
+  height:100%;
+  background-color: #6A84EE;
+  border-radius: 10px;
+}
+
+.exp_count{
+  margin-right: 10px;
+  text-align: right;
+}
+.gage{
+  text-align: center;
+}
+.gage img{
+  width:15px;
+}
+
+
+/*quest*/
+.quest_info{
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.daily_quest{
+  border: 2px solid #6A84EE;
+  margin: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height:20vh;
+}
+.party_quest{
+  border: 2px solid #6A84EE;
+  margin: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height:20vh;
+}
+.for_border{
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.custom_quest{
+  border: 2px solid #6A84EE;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 1px;
+  min-height:30vh;
+}
+.quest_title{
+  padding-top: 5px;
+  font-size:20px;
+  font-weight: 600;
+}
+.quest_list{
+  font-size:15px;
+  width: 260px;
+  display: inline-block;
+  overflow: hidden;
+}
+.make_btn{
+  float: right;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #6A84EE;
+  font-weight: bold;
+}
+.complete_btn{
+  text-align: center;
+  color:#F5F995;
+  font-size:15px;
+  float: right;
+  background-color: transparent;
+  width:22px;
+  height:22px;
+  background-color: rgba(106, 132, 238, 0.6);
+  border-style: none;
+  border-radius: 5px;
+}
+
+.quest_complete{
+  display:none;
+  text-align: center;
+  color:#F5F995;
+  font-size:15px;
+  float: right;
+  background-color: transparent;
+  width:22px;
+  height:22px;
+  background-color: rgba(106, 132, 238, 0.6);
+  border-style: none;
+  border-radius: 5px;
+}
+
+.custom_complete{
+  margin-top:2px;
+}
+
+@media only screen
+  and (min-device-width: 420px) {
+    #main_body{
+      background-color: rgb(129,251,207) !important;
+      width: 100vw;
+      height:100%;
+    }
+    #main_section{
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0;
+      font-family: firstFont,   thirdFont;
+      padding:10px;
+      border-left: 10px solid black;
+      border-right: 10px solid black;
+      background-color: white;
+    }
+    .animal_img{
+      display:inline-block;
+      width:90%;
+      height:90%;
+      background-color: white;
+      min-height: 60px;
+      margin:5px;
+    }
+    
+  }

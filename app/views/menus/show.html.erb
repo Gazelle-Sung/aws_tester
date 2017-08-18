@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @menu.category %>
+</p>
+
+<p>
+  <strong>Type num:</strong>
+  <%= @menu.type_num %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @menu.name %>
+</p>
+
+<p>
+  <strong>Need coin:</strong>
+  <%= @menu.need_coin %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @menu.description %>
+</p>
+
+<p>
+  <strong>Coin percent:</strong>
+  <%= @menu.coin_percent %>
+</p>
+
+<p>
+  <strong>Exp percent:</strong>
+  <%= @menu.exp_percent %>
+</p>
+
+<p>
+  <strong>Other percent:</strong>
+  <%= @menu.other_percent %>
+</p>
+
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>

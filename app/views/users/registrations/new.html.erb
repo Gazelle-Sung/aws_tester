@@ -1,0 +1,105 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<body id="login_body">
+  <section id="login_section">
+    <div class="login_background">
+      
+      <div class="login_logo">
+        <%= image_tag("icon/logo.png") %>
+      </div>
+      <div id="cloud1">
+        <%= image_tag("map/cloud1.png") %>
+      </div>
+      <div id="cloud2">
+        <%= image_tag("map/cloud2.png") %>
+      </div>
+      <div id="cloud3">
+        <%= image_tag("map/cloud3.png") %>
+      </div>
+      <div id="login_boat">
+        <%= image_tag("map/boat.png") %>
+      </div>
+      
+      <div class="login">
+        <%= f.error_notification %>
+      
+        <div class="form-inputs">
+          <%= f.input :email, required: true, label:false, placeholder: "NAME" %>
+          <%= f.input :password, label:false, placeholder: "PASSWORD", required: true%>
+          <%= f.input :password_confirmation, required: true, label:false, placeholder: "PASSWORD REPEAT" %>
+          <%= f.hidden_field :level, :value => 1 %>
+          <%= f.hidden_field :current_exp, :value => 0 %>
+          <%= f.hidden_field :need_exp, :value => 20 %>
+          <%= f.hidden_field :coin, :value => 0 %>
+          <%= f.hidden_field :title_name, :value => 0 %> 
+          <%= f.hidden_field :dress, :value => 0 %>
+          <%= f.hidden_field :hat, :value => 0 %>
+          <%= f.hidden_field :bag, :value => 0 %>
+          <%= f.hidden_field :island, :value => 0 %>
+          <%= f.hidden_field :pet, :value => 0 %>
+          <%= f.hidden_field :extra_coin, :value => 1 %>
+          <%= f.hidden_field :extra_exp, :value => 1 %>
+          <%= f.hidden_field :pet_capacity, :value => 10 %>
+        </div>
+      
+        <div class="form-actions">
+          <button type="submit" onclick="return can_sign_up();"><%= image_tag("icon/startbutton.png") %></button>
+        </div>
+        
+        <a href="/users/sign_in"><button><%= image_tag("icon/homebtn.png") %></button></a>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+  function can_sign_up(){
+    var user_email = document.getElementById("user_email").value;
+    if(user_email == ""){
+      alert("이메일을 입력해주세요.");
+      return false;  
+    }
+    
+    var user_password = document.getElementById("user_password").value;
+    if(user_password == ""){
+      alert("비밀번호를을 입력해주세요.");
+      return false;  
+    }
+    if(user_password.length < 6){
+      alert("비밀번호를 6자 이상 입력해주세요.");
+      return false;  
+    }
+    
+    var user_password_confirmation = document.getElementById("user_password_confirmation").value;
+    if(user_password_confirmation == ""){
+      alert("비밀번호 확인을 입력해주세요.")
+      return false;  
+    }
+    if(user_password_confirmation.length < 6){
+      alert("비밀번호 확인을 6자 이상 입력해주세요.")
+      return false;  
+    }
+    
+    if(user_password != user_password_confirmation){
+      alert("비밀번호와 비밀번호 확인이 같지 않습니다. 다시 입력해주세요.")
+      return false;  
+    }
+
+    
+    var user_name = document.getElementById("user_name").value;
+    if(user_name == ""){
+      alert("닉네임을 입력해주세요.")
+      return false;  
+    }
+  }
+  
+  var error = document.getElementsByClassName("error");
+  var error_notification = document.getElementsByClassName("error_notification");
+  if(error_notification.length == 1){
+    error_notification[0].innerHTML = "이미 등록된 Email 입니다. 다시 입력해주세요."
+  }
+  if (error.length == 1){
+    error[0].style.display = "none";
+  }
+</script>
+
+<% end %>
+
